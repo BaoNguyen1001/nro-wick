@@ -3170,7 +3170,7 @@ public class NpcFactory {
                                     Input.gI().createMenuDoiDaNguSac(player);
                                     break;
                                 } else if (select == 2) {
-                                    this.createOtherMenu(player, 1, "Con dang co: " + GodGK.GetMoney((player.getSession().userId)) + "\nCon muon doi de tu xin hay khong?\n|0|Tuy chon1 ) De Nezuko [50k]: Tang 30% pt khi hop the\n|0|Tuy chon2 ) De Maicute [100k]: Tang 100% pt khi hop the\n|0|Tuy chon3 ) De Zamatsu [200k]: Tang 150% pt khi hop the", "Tuy chon\n1", "Tuy chon 2", "Tuy chon 3", "Huy");
+                                    this.createOtherMenu(player, 1, "Con dang co: " + GodGK.GetMoney((player.getSession().userId)) + "\nCon muon doi de tu xin hay khong?\n|0|Tuy chon1 ) De Nezuko [50k]: Tang 30% pt khi hop the\n|0|Tuy chon2 ) De Jiren [100k]: Tang 100% pt khi hop the\n|0|Tuy chon3 ) De Zamatsu [200k]: Tang 150% pt khi hop the", "Tuy chon\n1", "Tuy chon 2", "Tuy chon 3", "Huy");
                                 } else if (select == 3) {
                                     Input.gI().createMenuDoiThoiVang(player);
                                 } else if (select == 4) {
@@ -3193,7 +3193,7 @@ public class NpcFactory {
 
                                 case 1:
                                     if (GodGK.GetMoney((player.getSession().userId)) >= 100000) {
-                                        PetService.gI().createMaicutePet(player, player.gender);
+                                        PetService.gI().changeJirenPet(player);
                                         GodGK.setMoney(player, GodGK.GetMoney(player.getSession().userId) - 100000);
                                     } else {
                                         Service.gI().sendThongBao(player, "Ban con thieu " + (100000 - GodGK.GetMoney((player.getSession().userId))) + " nua");
@@ -3203,7 +3203,7 @@ public class NpcFactory {
                                 
                                 case 2:
                                     if (GodGK.GetMoney((player.getSession().userId)) >= 200000) {
-                                        PetService.gI().createZamatsuPet(player, player.gender);
+                                        PetService.gI().changeZamatsuPet(player, player.gender);
                                         GodGK.setMoney(player, GodGK.GetMoney(player.getSession().userId) - 200000);
                                     } else {
                                         Service.gI().sendThongBao(player, "Ban con thieu " + (200000 - GodGK.GetMoney((player.getSession().userId))) + " nua");
@@ -3749,6 +3749,9 @@ public class NpcFactory {
                                 break;
                             case 8:
                                 Input.gI().createFormSendGoldBar(player);
+                                break;
+                            case 9:
+                                Input.gI().createFormChangeExp(player);
                                 break;
                         }
                         break;

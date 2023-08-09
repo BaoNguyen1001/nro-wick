@@ -119,16 +119,14 @@ public class PlayerDAO {
             dataArray.clear();
 
             for (int i = 0; i < 20; i++) {
-                if (i == 0) { //thỏi vàng
+                if (i == 0) { //capsule vàng
                     opt.add(30); //id option
                      opt.add(1);
                     item.add(574); //id item
                     item.add(50); //số lượng
                     options.add(opt.toJSONString());
                     opt.clear();
-                } else if (i == 1) { //quần
-                    opt.add(30); //id option
-                    opt.add(1); //param option
+                } else if (i == 1) { //thỏi vàng
                     item.add(457); //id item
                     item.add(99); //số lượng
                     options.add(opt.toJSONString());

@@ -454,7 +454,7 @@ public class ShopServiceNew {
         if (item != null && item.isNotNullItem()) {
             int quantity = item.quantity;
             int cost = item.template.gold;
-            if (item.template.id == 457 || item.template.id == 457) {
+            if (item.template.id == 457 || item.template.id == 2094) {
                 quantity = 1;
             } else {
                 cost /= 4;
@@ -499,10 +499,10 @@ public class ShopServiceNew {
             cost *= quantity;
             
             
-            if (pl.inventory.gold + cost > pl.inventory.maxgold) {
-                Service.gI().sendThongBao(pl, "Vàng sau khi bán vượt quá giới hạn");
-                return;
-            }
+            // if (pl.inventory.gold + cost > pl.inventory.maxgold) {
+            //     Service.gI().sendThongBao(pl, "Vàng sau khi bán vượt quá giới hạn");
+            //     return;
+            // }
 
             if (pl.inventory.gold + cost > Inventory.LIMIT_GOLD) {
                 Service.getInstance().sendThongBao(pl, "Vàng sau khi bán vượt quá giới hạn");

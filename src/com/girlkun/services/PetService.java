@@ -136,7 +136,7 @@ public class PetService {
     }
 
     // de tu gojo
-    public void createGoJoPet(Player player, byte... limitPower) {
+    public void createJirenPet(Player player, byte... limitPower) {
         new Thread(() -> {
             try {
                 createNewPet4(player, false, true, false);
@@ -155,6 +155,21 @@ public class PetService {
         new Thread(() -> {
             try {
                 createNewPet8(player, false, true, false);
+                if (limitPower != null && limitPower.length == 1) {
+                    player.pet.nPoint.limitPower = limitPower[0];
+                }
+                Thread.sleep(1000);
+                Service.getInstance().chatJustForMe(player, player.pet, "AAA, Vòng 3 Anh Cho 2 Đánh...");
+            } catch (Exception e) {
+            }
+        }).start();
+
+    }
+
+    public void createZamatsuPet(Player player, int gender, byte... limitPower) {
+        new Thread(() -> {
+            try {
+                createNewPet8(player, false, true, false, (byte) gender);
                 if (limitPower != null && limitPower.length == 1) {
                     player.pet.nPoint.limitPower = limitPower[0];
                 }
@@ -264,6 +279,17 @@ public class PetService {
         player.pet = null;
         createZamatsuPet(player, limitPower);
     }
+    
+    public void changeZamatsuPet(Player player, int gender) {
+        byte limitPower = player.pet.nPoint.limitPower;
+        if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
+            player.pet.unFusion();
+        }
+        ChangeMapService.gI().exitMap(player.pet);
+        player.pet.dispose();
+        player.pet = null;
+        createZamatsuPet(player, gender, limitPower);
+    }
 
     public void changeBROLYHTPet(Player player) {
         byte limitPower = player.pet.nPoint.limitPower;
@@ -318,6 +344,17 @@ public class PetService {
         player.pet.dispose();
         player.pet = null;
         createBerusPet(player, gender, limitPower);
+    }
+
+    public void changeJirenPet(Player player) {
+        byte limitPower = player.pet.nPoint.limitPower;
+        if (player.fusion.typeFusion != ConstPlayer.NON_FUSION) {
+            player.pet.unFusion();
+        }
+        ChangeMapService.gI().exitMap(player.pet);
+        player.pet.dispose();
+        player.pet = null;
+        createJirenPet(player, limitPower);
     }
 
     public void changeNamePet(Player player, String name) {
@@ -425,14 +462,14 @@ public class PetService {
     }
 
     // de gojo
-    private void createNewPet4(Player player, boolean isMabu, boolean isGoJo, boolean isTXH, byte... gender) {
+    private void createNewPet4(Player player, boolean isMabu, boolean isJiren, boolean isTXH, byte... gender) {
         int[] data = isMabu ? getDataPetMabu() : getDataPetNormal();
         Pet pet = new Pet(player);
-        pet.name = "$" + (isMabu ? "Mabư" : isGoJo ? "Gojo" : "Đệ tử");
+        pet.name = "$" + (isMabu ? "Mabư" : isJiren ? "Jiren" : "Đệ tử");
         pet.gender = player.gender;
         pet.id = -player.id;
         pet.nPoint.power = 1500000;
-        pet.typePet = (byte) (isMabu ? 1 : isGoJo ? 6 : isTXH ? 3 : 0);// GOJO==6
+        pet.typePet = (byte) (isMabu ? 1 : isJiren ? 6 : isTXH ? 3 : 0);// GOJO==6
         pet.nPoint.stamina = 1000;
         pet.nPoint.maxStamina = 1000;
         pet.nPoint.hpg = data[0];

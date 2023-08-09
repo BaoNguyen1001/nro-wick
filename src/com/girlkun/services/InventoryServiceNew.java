@@ -109,13 +109,13 @@ public class InventoryServiceNew {
             Service.getInstance().Send_Caitrang(player);
         } else if (where == 1) {
             itemThrow = player.inventory.itemsBag.get(index);
-            if (itemThrow.template.id != 457) {
+            // if (itemThrow.template.id != 457) {
                 removeItemBag(player, index);
                 sortItems(player.inventory.itemsBag);
                 sendItemBags(player);
-            } else {
-                Service.getInstance().sendThongBao(player, "Thưa ngài");
-            }
+            // } else {
+            //     Service.getInstance().sendThongBao(player, "Thưa ngài");
+            // }
         }
         if (itemThrow == null) {
             return;
@@ -376,7 +376,7 @@ public class InventoryServiceNew {
                 Service.getInstance().Send_Caitrang(player);
                 if (!itemSwap.equals(item)) {
                     Service.getInstance().point(player);
-                    Service.getInstance().showInfoPet(player);
+                    //Service.getInstance().showInfoPet(player);
                 }
                   Service.getInstance().player(player);
                 player.zone.load_Me_To_Another(player);

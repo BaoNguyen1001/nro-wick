@@ -978,7 +978,7 @@ public static Boolean baotri = false;
                     }
                     Util.useCheckDo(player, item, "body");
                     player.inventory.itemsBody.add(item);
-                    if (item.template.id == 2094) {
+                    if (item.template.id == 457) {
                         thoi_vang += item.quantity;
                     }
                 }
@@ -1006,7 +1006,7 @@ public static Boolean baotri = false;
                         item = ItemService.gI().createItemNull();
                     }
                     Util.useCheckDo(player, item, "bag");
-                    if (item.template.id == 2094) {
+                    if (item.template.id == 457) {
                         thoi_vang += item.quantity;
                     }
                     player.inventory.itemsBag.add(item);
@@ -1035,7 +1035,7 @@ public static Boolean baotri = false;
                         item = ItemService.gI().createItemNull();
                     }
                     Util.useCheckDo(player, item, "box");
-                    if (item.template.id == 2094) {
+                    if (item.template.id == 457) {
                         thoi_vang += item.quantity;
                     }
                     player.inventory.itemsBox.add(item);

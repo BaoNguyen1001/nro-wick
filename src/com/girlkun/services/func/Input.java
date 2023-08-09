@@ -16,6 +16,7 @@ import com.girlkun.network.session.ISession;
 import com.girlkun.result.GirlkunResultSet;
 import com.girlkun.server.Client;
 import com.girlkun.server.Maintenance;
+import com.girlkun.server.Manager;
 import com.girlkun.services.Service;
 import com.girlkun.services.GiftService;
 import com.girlkun.services.InventoryServiceNew;
@@ -57,6 +58,7 @@ public class Input {
     public static final int SEND_ITEM_SKH = 556;
     public static final int SEND_THOI_VANG = 557;
     public static final int SEND_ITEM_GOLDBAR = 558;
+    public static final int CHANGE_EXP = 559;
     
     private static Input intance;
     
@@ -621,6 +623,18 @@ public class Input {
                         
                     }
                     break;
+                
+                case CHANGE_EXP:
+                    if (player.isAdmin()) {
+                        int newExp = Integer.parseInt(text[0]);
+                        if(newExp >= 1 && newExp <= 125) {
+                            Manager.RATE_EXP_SERVER = (byte) newExp;
+                        } else {
+                            Service.getInstance().sendThongBao(player, "Exp không hợp lệ");
+                        }
+                    }
+                    break;
+                
             }
         } catch (Exception e) {
         }
@@ -767,6 +781,10 @@ public class Input {
                 new SubInput("Param", NUMERIC),
                 new SubInput("Số lượng", NUMERIC));
     }
+
+    public void createFormChangeExp(Player pl) {
+        createForm(pl, CHANGE_EXP, "EXP hiện tại " + Manager.RATE_EXP_SERVER, new SubInput("", NUMERIC));
+    }
     
     public static class SubInput {
         
@@ -822,7 +840,9 @@ public class Input {
                                 Item itemGiftTemplate = ItemService.gI().createNewItem((short) idItem);
                                 
                                 itemGiftTemplate.quantity = quantity;
-                                itemGiftTemplate.itemOptions.add(new Item.ItemOption(30, 1));
+                                if(idItem != 457) {
+                                    itemGiftTemplate.itemOptions.add(new Item.ItemOption(30, 1));
+                                }
                                 text += "x" + quantity + " " + itemGiftTemplate.template.name + "\b";
                                 InventoryServiceNew.gI().addItemBag(p, itemGiftTemplate);
                                 InventoryServiceNew.gI().sendItemBags(p);

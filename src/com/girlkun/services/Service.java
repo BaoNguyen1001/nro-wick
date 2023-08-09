@@ -526,7 +526,7 @@ public class Service {
             }
             if (text.equals("admin")) {
                 NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1, "Quản trị admin Nro MAD: " + Client.gI().getPlayers().size() + "\n",
-                        "Ngọc rồng", "Đệ tử", "Bảo trì", "Tìm kiếm\nngười chơi", "Call\nBoss", " Ttem", " Item\noption", "Option Advanced","Thỏi", "Đóng");
+                        "Ngọc rồng", "Đệ tử", "Bảo trì", "Tìm kiếm\nngười chơi", "Call\nBoss", " Ttem", " Item\noption", "Option Advanced","Thỏi", "Exp" ,"Đóng");
                 return;
 
             } else if (text.startsWith("upp")) {

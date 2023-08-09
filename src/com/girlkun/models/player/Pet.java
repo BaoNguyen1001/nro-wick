@@ -693,7 +693,7 @@ public class Pet extends Player {
         } else if (this.typePet == 5) {
             return 1319;
         } else if (this.typePet == 6) {
-            return 1243;
+            return 1219;
         } else if (this.typePet == 7) {
             return 1231;
         } else if (this.typePet == 8) {
@@ -717,12 +717,11 @@ public class Pet extends Player {
         } else if (this.typePet == 3) {
             return 237;
         } else if (this.typePet == 4) {
-
             return 1128;
         } else if (this.typePet == 5) {
             return 1319;
         } else if (this.typePet == 6) {
-            return 1243;
+            return 1219;
         } else if (this.typePet == 7) {
             return 1231;
         } else if (this.typePet == 8) {
@@ -758,7 +757,7 @@ public class Pet extends Player {
         } else if (this.typePet == 5 && !this.isTransform) {
             return 1320;
         } else if (this.typePet == 6 && !this.isTransform) {
-            return 1244;
+            return 1220;
         } else if (this.typePet == 7 && !this.isTransform) {
             return 1232;
         } else if (this.typePet == 8 && !this.isTransform) {
@@ -796,7 +795,7 @@ public class Pet extends Player {
         } else if (this.typePet == 5 && !this.isTransform) {
             return 1321;
         } else if (this.typePet == 6 && !this.isTransform) {
-            return 1245;
+            return 1221;
         } else if (this.typePet == 7 && !this.isTransform) {
             return 1233;
         } else if (this.typePet == 8 && !this.isTransform) {
