@@ -367,7 +367,7 @@ public class UseItem {
                         case 2064: //bông tai
                             UseItem.gI().usePorata3(pl);
                             break;
-                        case 2115:
+                        case 1109:
                             UseItem.gI().usePorata4(pl);
                             break;
                         case 193: //gói 10 viên capsule

@@ -176,6 +176,41 @@ public class NPoint {
         resetPoint();
 
         for (Item item : this.player.inventory.itemsBag) {
+            if (item.isNotNullItem() && item.template.id == 1109) {
+                if (this.player.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
+                    for (Item.ItemOption io : item.itemOptions) {
+                        switch (io.optionTemplate.id) {
+                            case 80: //HP+#%/30s
+                                this.tlHpHoi += io.param;
+                                break;
+                            case 81: //MP+#%/30s
+                                this.tlMpHoi += io.param;
+                                break;
+                            case 50: //Sức đánh+#%
+                                this.tlDame.add(io.param);
+                                break;
+                            case 77: //HP+#%
+                                this.tlHp.add(io.param);
+                                break;
+                            case 94: //Giáp #%
+                                this.tlDef.add(io.param);
+                                break;
+                            case 101: //+#% TN,SM
+                                this.tlTNSM.add(io.param);
+                                break;
+                            case 103: //KI +#%
+                                this.tlMp.add(io.param);
+                                break;
+                            case 108: //#% Né đòn
+                                this.tlNeDon += io.param;
+                                break;
+                        }
+                        //System.out.println("Cộng chỉ số cấp 2");
+                    }
+                }
+            }
+        }
+        for (Item item : this.player.inventory.itemsBag) {
             if (item.isNotNullItem() && item.template.id == 2064) {
                 if (this.player.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA3) {
                     for (Item.ItemOption io : item.itemOptions) {
@@ -778,6 +813,10 @@ public class NPoint {
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
             this.hpMax += ((long) this.hpMax * 100 / 100);    
         }
+        if (this.player.isPet && ((Pet) this.player).typePet == 8
+                && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
+            this.hpMax += ((long) this.hpMax * 150 / 100);    
+        }
         //phù
         if (this.player.zone != null && MapService.gI().isMapBlackBallWar(this.player.zone.map.mapId)) {
             this.hpMax *= this.player.effectSkin.xHPKI;
@@ -958,6 +997,10 @@ public class NPoint {
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
             this.mpMax += ((long) this.mpMax * 100 / 100);    
         }
+        if (this.player.isPet && ((Pet) this.player).typePet == 8
+                && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
+            this.mpMax += ((long) this.mpMax * 150 / 100);    
+        }
         //hợp thể
         if (this.player.fusion.typeFusion != 0) {
             this.mpMax += this.player.pet.nPoint.mpMax;
@@ -1110,6 +1153,10 @@ public class NPoint {
         if (this.player.isPet && ((Pet) this.player).typePet == 7
                 && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
             this.dame += ((long) this.dame * 100 / 100);    
+        }
+        if (this.player.isPet && ((Pet) this.player).typePet == 8
+                && ((Pet) this.player).master.fusion.typeFusion == ConstPlayer.HOP_THE_PORATA4) {
+            this.dame += ((long) this.dame * 150 / 100);    
         }
         
         //thức ăn
