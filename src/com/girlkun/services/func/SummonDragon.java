@@ -51,8 +51,7 @@ public class SummonDragon {
     public static final short NGOC_RONG_6_HD = 1171;
     public static final short NGOC_RONG_7_HD = 1172;
 
-    public static final String SUMMON_SHENRON_TUTORIAL
-            = "Có 3 cách gọi rồng thần. Gọi từ ngọc 1 sao, gọi từ ngọc 2 sao, hoặc gọi từ ngọc 3 sao\n"
+    public static final String SUMMON_SHENRON_TUTORIAL = "Có 3 cách gọi rồng thần. Gọi từ ngọc 1 sao, gọi từ ngọc 2 sao, hoặc gọi từ ngọc 3 sao\n"
             + "Các ngọc 4 sao đến 7 sao không thể gọi rồng thần được\n"
             + "Để gọi rồng 1 sao cần ngọc từ 1 sao đến 7 sao\n"
             + "Để gọi rồng 2 sao cần ngọc từ 2 sao đến 7 sao\n"
@@ -62,39 +61,36 @@ public class SummonDragon {
             + "Điều ước rồng 1 sao: Capsule 1 sao, hoặc 200 triệu sức mạnh, hoặc 20 triệu vàng, hoặc đẹp trai, hoặc....\n"
             + "Ngọc rồng sẽ mất ngay khi gọi rồng dù bạn có ước hay không\n"
             + "Quá 5 phút nếu không ước rồng thần sẽ bay mất";
-    public static final String NRHD_TUTORIAL
-            = "Ngọc rồng sẽ mất ngay khi gọi rồng dù bạn có ước hay không\n"
+    public static final String NRHD_TUTORIAL = "Ngọc rồng sẽ mất ngay khi gọi rồng dù bạn có ước hay không\n"
             + "Quá 5 phút nếu không ước rồng thần sẽ bay mất";
-    public static final String SHENRON_SAY
-            = "Ta sẽ ban cho người 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định";
-    public static final String NRHD_SAY
-            = "Ta sẽ ban cho người 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định";
+    public static final String SHENRON_SAY = "Ta sẽ ban cho người 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định";
+    public static final String NRHD_SAY = "Ta sẽ ban cho người 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định";
 
-    public static final String[] SHENRON_1_STAR_WISHES_1
-            = new String[]{"Giàu có\n+2 Tỏi\nVàng", "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
-                "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác"};
-    public static final String[] NRHD_STAR_WISHES_1
-            = new String[]{"Giàu có\n+2 Tỏi\nVàng", "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
-                "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác"};
-    public static final String[] SHENRON_1_STAR_WISHES_2
-            = new String[]{"Đẹp trai\nnhất\nVũ trụ", "Giàu có\n+10K\nNgọc", "+200 Tr\nSức mạnh\nvà tiềm\nnăng",
-                "Găng tay đệ\nđang mang\nlên 1 cấp",
-                "Điều ước\nkhác"};
-     public static final String[] NRHD_STAR_WISHES_2
-            = new String[]{"Cải Trang\nThiên Sứ", "Giàu có\n+10K\nNgọc Hồng", "+20 Tỷ\nSức mạnh\nvà tiềm\nnăng",
-                "Găng tay đệ\nđang mang\nlên 1 cấp",
-                "Điều ước\nkhác"};
-    public static final String[] SHENRON_2_STARS_WHISHES
-            = new String[]{"Giàu có\n+2K\nNgọc", "+20 Tr\nSức mạnh\nvà tiềm năng", "Giàu có\n+200 Tr\nVàng"};
-    public static final String[] SHENRON_3_STARS_WHISHES
-            = new String[]{"Giàu có\n+200\nNgọc", "+2 Tr\nSức mạnh\nvà tiềm năng", "Giàu có\n+20 Tr\nVàng"};
-    //--------------------------------------------------------------------------
+    public static final String[] SHENRON_1_STAR_WISHES_1 = new String[] { "Giàu có\n+2 Tỏi\nVàng",
+            "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
+            "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác" };
+    public static final String[] NRHD_STAR_WISHES_1 = new String[] { "Giàu có\n+2 Tỏi\nVàng",
+            "Găng tay\nđang mang\nlên 1 cấp", "Chí mạng\nGốc +2%",
+            "Thay\nChiêu 2-3\nĐệ tử", "Điều ước\nkhác" };
+    public static final String[] SHENRON_1_STAR_WISHES_2 = new String[] { "Đẹp trai\nnhất\nVũ trụ",
+            "Giàu có\n+10K\nNgọc", "+200 Tr\nSức mạnh\nvà tiềm\nnăng",
+            "Găng tay đệ\nđang mang\nlên 1 cấp",
+            "Điều ước\nkhác" };
+    public static final String[] NRHD_STAR_WISHES_2 = new String[] { "Cải Trang\nThiên Sứ", "Giàu có\n+10K\nNgọc Hồng",
+            "+20 Tỷ\nSức mạnh\nvà tiềm\nnăng",
+            "Găng tay đệ\nđang mang\nlên 1 cấp",
+            "Điều ước\nkhác" };
+    public static final String[] SHENRON_2_STARS_WHISHES = new String[] { "Giàu có\n+2K\nNgọc",
+            "+20 Tr\nSức mạnh\nvà tiềm năng", "Giàu có\n+200 Tr\nVàng" };
+    public static final String[] SHENRON_3_STARS_WHISHES = new String[] { "Giàu có\n+200\nNgọc",
+            "+2 Tr\nSức mạnh\nvà tiềm năng", "Giàu có\n+20 Tr\nVàng" };
+    // --------------------------------------------------------------------------
     private static SummonDragon instance;
     private final Map pl_dragonStar;
     private long lastTimeShenronAppeared;
     private long lastTimeShenronWait;
-    private final int timeResummonShenron = 600000;
-//    private final int timeResummonShenron = 0;
+    private final int timeResummonShenron = 3000; // note: need to change after done testing
+    // private final int timeResummonShenron = 0;
     private boolean isShenronAppear;
     private final int timeShenronWait = 300000;
 
@@ -118,15 +114,15 @@ public class SummonDragon {
                         if (isPlayerDisconnect) {
 
                             List<Player> players = mapShenronAppear.getPlayers();
-                                for (Player plMap : players) {
-                                    if (plMap.id == playerSummonShenronId) {
-                                        playerSummonShenron = plMap;
-                                        reSummonShenron();
-                                        isPlayerDisconnect = false;
-                                        break;
-                                    }
+                            for (Player plMap : players) {
+                                if (plMap.id == playerSummonShenronId) {
+                                    playerSummonShenron = plMap;
+                                    reSummonShenron();
+                                    isPlayerDisconnect = false;
+                                    break;
                                 }
-                            
+                            }
+
                         }
                         if (Util.canDoWithTime(lastTimeShenronWait, timeShenronWait)) {
                             shenronLeave(playerSummonShenron, TIME_UP);
@@ -149,30 +145,31 @@ public class SummonDragon {
     }
 
     public void summonNamec(Player pl) {
-        if (pl.zone.map.mapId == 7 ) {
+        if (pl.zone.map.mapId == 7) {
             playerSummonShenron = pl;
             playerSummonShenronId = (int) pl.id;
             mapShenronAppear = pl.zone;
             sendNotifyShenronAppear();
-            activeShenron(pl, true,SummonDragon.DRAGON_PORUNGA);
+            activeShenron(pl, true, SummonDragon.DRAGON_PORUNGA);
             sendWhishesNamec(pl);
         } else {
             Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
         }
     }
+
     public void summonhuydiet(Player pl) {
-        if (pl.zone.map.mapId == 7 ) {
+        if (pl.zone.map.mapId == 7) {
             playerSummonShenron = pl;
             playerSummonShenronId = (int) pl.id;
             mapShenronAppear = pl.zone;
             sendNotifyShenronAppear();
-            activeShenron(pl, true,SummonDragon.DRAGON_PORUNGA);
+            activeShenron(pl, true, SummonDragon.DRAGON_PORUNGA);
             sendWhishesNamec(pl);
         } else {
             Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
         }
     }
-    
+
     public static SummonDragon gI() {
         if (instance == null) {
             instance = new SummonDragon();
@@ -199,23 +196,25 @@ public class SummonDragon {
                 Item nr5s = null;
                 Item nr6s = null;
                 Item nr7s = null;
-                  try {
-                                        nr2s = InventoryServiceNew.gI().findItemBag(pl, 15);
-                                        nr3s = InventoryServiceNew.gI().findItemBag(pl, 16);
-                                        nr4s = InventoryServiceNew.gI().findItemBag(pl, 17);
-                                        nr5s = InventoryServiceNew.gI().findItemBag(pl, 18);
-                                        nr6s = InventoryServiceNew.gI().findItemBag(pl, 19);
-                                        nr7s = InventoryServiceNew.gI().findItemBag(pl, 20);
-                                    } catch (Exception e) {
-//                                        throw new RuntimeException(e);
-                                    }
-                                    if (nr2s == null || nr2s.quantity < 1 && nr3s == null || nr3s.quantity < 1 && nr4s == null || nr4s.quantity < 1 && nr5s == null || nr5s.quantity < 1 && nr6s == null || nr6s.quantity < 1 && nr7s == null || nr7s.quantity < 1) {
-                                        Service.gI().sendThongBao(pl, "Thiếu Ngọc Rồng Rồi Nhé !!");
-                                    return;
-                                    }
+                try {
+                    nr2s = InventoryServiceNew.gI().findItemBag(pl, 15);
+                    nr3s = InventoryServiceNew.gI().findItemBag(pl, 16);
+                    nr4s = InventoryServiceNew.gI().findItemBag(pl, 17);
+                    nr5s = InventoryServiceNew.gI().findItemBag(pl, 18);
+                    nr6s = InventoryServiceNew.gI().findItemBag(pl, 19);
+                    nr7s = InventoryServiceNew.gI().findItemBag(pl, 20);
+                } catch (Exception e) {
+                    // throw new RuntimeException(e);
+                }
+                if (nr2s == null || nr2s.quantity < 1 && nr3s == null || nr3s.quantity < 1 && nr4s == null
+                        || nr4s.quantity < 1 && nr5s == null || nr5s.quantity < 1 && nr6s == null
+                        || nr6s.quantity < 1 && nr7s == null || nr7s.quantity < 1) {
+                    Service.gI().sendThongBao(pl, "Thiếu Ngọc Rồng Rồi Nhé !!");
+                    return;
+                }
 
                 if (Util.canDoWithTime(lastTimeShenronAppeared, timeResummonShenron)) {
-                    //gọi rồng
+                    // gọi rồng
                     playerSummonShenron = pl;
                     playerSummonShenronId = (int) pl.id;
                     mapShenronAppear = pl.zone;
@@ -231,23 +230,27 @@ public class SummonDragon {
                     }
                     for (int i = begin; i <= NGOC_RONG_7_SAO; i++) {
                         try {
-                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i), 1);
+                            InventoryServiceNew.gI().subQuantityItemsBag(pl,
+                                    InventoryServiceNew.gI().findItemBag(pl, i), 1);
                         } catch (Exception ex) {
                         }
                     }
                     InventoryServiceNew.gI().sendItemBags(pl);
                     sendNotifyShenronAppear();
-                    activeShenron(pl, true,SummonDragon.DRAGON_SHENRON);
+                    activeShenron(pl, true, SummonDragon.DRAGON_SHENRON);
                     sendWhishesShenron(pl);
                 } else {
-                    int timeLeft = (int) ((timeResummonShenron - (System.currentTimeMillis() - lastTimeShenronAppeared)) / 1000);
-                    Service.getInstance().sendThongBao(pl, "Vui lòng đợi " + (timeLeft < 7200 ? timeLeft + " giây" : timeLeft / 60 + " phút") + " nữa");
+                    int timeLeft = (int) ((timeResummonShenron - (System.currentTimeMillis() - lastTimeShenronAppeared))
+                            / 1000);
+                    Service.getInstance().sendThongBao(pl, "Vui lòng đợi "
+                            + (timeLeft < 7200 ? timeLeft + " giây" : timeLeft / 60 + " phút") + " nữa");
                 }
             }
         } else {
             Service.getInstance().sendThongBao(pl, "Chỉ được gọi rồng thần ở ngôi làng trước nhà");
         }
     }
+
     public void summonHUYDIET(Player pl) {
         if (pl.zone.map.mapId == 0 || pl.zone.map.mapId == 7 || pl.zone.map.mapId == 14) {
             if (checkShenronBall(pl)) {
@@ -261,23 +264,25 @@ public class SummonDragon {
                 Item nr5s = null;
                 Item nr6s = null;
                 Item nr7s = null;
-                  try {
-                                        nr2s = InventoryServiceNew.gI().findItemBag(pl, 1167);
-                                        nr3s = InventoryServiceNew.gI().findItemBag(pl, 1168);
-                                        nr4s = InventoryServiceNew.gI().findItemBag(pl, 1169);
-                                        nr5s = InventoryServiceNew.gI().findItemBag(pl, 1170);
-                                        nr6s = InventoryServiceNew.gI().findItemBag(pl, 1171);
-                                        nr7s = InventoryServiceNew.gI().findItemBag(pl, 1172);
-                                    } catch (Exception e) {
-//                                        throw new RuntimeException(e);
-                                    }
-                                    if (nr2s == null || nr2s.quantity < 1 && nr3s == null || nr3s.quantity < 1 && nr4s == null || nr4s.quantity < 1 && nr5s == null || nr5s.quantity < 1 && nr6s == null || nr6s.quantity < 1 && nr7s == null || nr7s.quantity < 1) {
-                                        Service.gI().sendThongBao(pl, "Thiếu Ngọc Rồng Rồi Nhé !!");
-                                    return;
-                                    }
+                try {
+                    nr2s = InventoryServiceNew.gI().findItemBag(pl, 1167);
+                    nr3s = InventoryServiceNew.gI().findItemBag(pl, 1168);
+                    nr4s = InventoryServiceNew.gI().findItemBag(pl, 1169);
+                    nr5s = InventoryServiceNew.gI().findItemBag(pl, 1170);
+                    nr6s = InventoryServiceNew.gI().findItemBag(pl, 1171);
+                    nr7s = InventoryServiceNew.gI().findItemBag(pl, 1172);
+                } catch (Exception e) {
+                    // throw new RuntimeException(e);
+                }
+                if (nr2s == null || nr2s.quantity < 1 && nr3s == null || nr3s.quantity < 1 && nr4s == null
+                        || nr4s.quantity < 1 && nr5s == null || nr5s.quantity < 1 && nr6s == null
+                        || nr6s.quantity < 1 && nr7s == null || nr7s.quantity < 1) {
+                    Service.gI().sendThongBao(pl, "Thiếu Ngọc Rồng Rồi Nhé !!");
+                    return;
+                }
 
                 if (Util.canDoWithTime(lastTimeShenronAppeared, timeResummonShenron)) {
-                    //gọi rồng
+                    // gọi rồng
                     playerSummonShenron = pl;
                     playerSummonShenronId = (int) pl.id;
                     mapShenronAppear = pl.zone;
@@ -293,17 +298,20 @@ public class SummonDragon {
                     }
                     for (int i = begin; i <= NGOC_RONG_7_HD; i++) {
                         try {
-                            InventoryServiceNew.gI().subQuantityItemsBag(pl, InventoryServiceNew.gI().findItemBag(pl, i), 1);
+                            InventoryServiceNew.gI().subQuantityItemsBag(pl,
+                                    InventoryServiceNew.gI().findItemBag(pl, i), 1);
                         } catch (Exception ex) {
                         }
                     }
                     InventoryServiceNew.gI().sendItemBags(pl);
                     sendNotifyShenronAppear();
-                    activeShenron(pl, true,SummonDragon.DRAGON_SHENRON);
+                    activeShenron(pl, true, SummonDragon.DRAGON_SHENRON);
                     sendWhishesShenron(pl);
                 } else {
-                    int timeLeft = (int) ((timeResummonShenron - (System.currentTimeMillis() - lastTimeShenronAppeared)) / 1000);
-                    Service.getInstance().sendThongBao(pl, "Vui lòng đợi " + (timeLeft < 7200 ? timeLeft + " giây" : timeLeft / 60 + " phút") + " nữa");
+                    int timeLeft = (int) ((timeResummonShenron - (System.currentTimeMillis() - lastTimeShenronAppeared))
+                            / 1000);
+                    Service.getInstance().sendThongBao(pl, "Vui lòng đợi "
+                            + (timeLeft < 7200 ? timeLeft + " giây" : timeLeft / 60 + " phút") + " nữa");
                 }
             }
         } else {
@@ -312,7 +320,7 @@ public class SummonDragon {
     }
 
     private void reSummonShenron() {
-        activeShenron(playerSummonShenron, true,SummonDragon.DRAGON_SHENRON);
+        activeShenron(playerSummonShenron, true, SummonDragon.DRAGON_SHENRON);
         sendWhishesShenron(playerSummonShenron);
     }
 
@@ -338,10 +346,12 @@ public class SummonDragon {
     }
 
     private void sendWhishesNamec(Player pl) {
-        NpcService.gI().createMenuRongThieng(pl, ConstNpc.NAMEC_1, "Ta sẽ ban cho cả bang ngươi 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định", "x5 ngọc rồng 3 sao");
+        NpcService.gI().createMenuRongThieng(pl, ConstNpc.NAMEC_1,
+                "Ta sẽ ban cho cả bang ngươi 1 điều ước, ngươi có 5 phút, hãy suy nghĩ thật kỹ trước khi quyết định",
+                "x5 ngọc rồng 3 sao");
     }
 
-    private void activeShenron(Player pl, boolean appear , byte type) {
+    private void activeShenron(Player pl, boolean appear, byte type) {
         Message msg;
         try {
             msg = new Message(-83);
@@ -415,11 +425,11 @@ public class SummonDragon {
         switch (this.menuShenron) {
             case ConstNpc.SHENRON_1_1:
                 switch (this.select) {
-                    case 0: //20 tr vàng
+                    case 0: // 20 tr vàng
                         this.playerSummonShenron.inventory.gold = 2000000000;
                         PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
                         break;
-                    case 1: //găng tay đang đeo lên 1 cấp
+                    case 1: // găng tay đang đeo lên 1 cấp
                         Item item = this.playerSummonShenron.inventory.itemsBody.get(2);
                         if (item.isNotNullItem()) {
                             int level = 0;
@@ -444,7 +454,8 @@ public class SummonDragon {
                                 }
                                 InventoryServiceNew.gI().sendItemBody(playerSummonShenron);
                             } else {
-                                Service.getInstance().sendThongBao(playerSummonShenron, "Găng tay của ngươi đã đạt cấp tối đa");
+                                Service.getInstance().sendThongBao(playerSummonShenron,
+                                        "Găng tay của ngươi đã đạt cấp tối đa");
                                 reOpenShenronWishes(playerSummonShenron);
                                 return;
                             }
@@ -454,16 +465,17 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 2: //chí mạng +2%
+                    case 2: // chí mạng +2%
                         if (this.playerSummonShenron.nPoint.critg < 9) {
                             this.playerSummonShenron.nPoint.critg += 2;
                         } else {
-                            Service.getInstance().sendThongBao(playerSummonShenron, "Điều ước này đã quá sức với ta, ta sẽ cho ngươi chọn lại");
+                            Service.getInstance().sendThongBao(playerSummonShenron,
+                                    "Điều ước này đã quá sức với ta, ta sẽ cho ngươi chọn lại");
                             reOpenShenronWishes(playerSummonShenron);
                             return;
                         }
                         break;
-                    case 3: //thay chiêu 2-3 đệ tử
+                    case 3: // thay chiêu 2-3 đệ tử
                         if (playerSummonShenron.pet != null) {
                             if (playerSummonShenron.pet.playerSkill.skills.get(1).skillId != -1) {
                                 playerSummonShenron.pet.openSkill2();
@@ -471,7 +483,8 @@ public class SummonDragon {
                                     playerSummonShenron.pet.openSkill3();
                                 }
                             } else {
-                                Service.getInstance().sendThongBao(playerSummonShenron, "Ít nhất đệ tử ngươi phải có chiêu 2 chứ!");
+                                Service.getInstance().sendThongBao(playerSummonShenron,
+                                        "Ít nhất đệ tử ngươi phải có chiêu 2 chứ!");
                                 reOpenShenronWishes(playerSummonShenron);
                                 return;
                             }
@@ -485,7 +498,7 @@ public class SummonDragon {
                 break;
             case ConstNpc.SHENRON_1_2:
                 switch (this.select) {
-                    case 0: //đẹp trai nhất vũ trụ
+                    case 0: // đẹp trai nhất vũ trụ
                         if (InventoryServiceNew.gI().getCountEmptyBag(playerSummonShenron) > 0) {
                             byte gender = this.playerSummonShenron.gender;
                             Item avtVip = ItemService.gI().createNewItem((short) (gender == ConstPlayer.TRAI_DAT ? 227
@@ -500,20 +513,21 @@ public class SummonDragon {
                             return;
                         }
                         break;
-                    case 1: //+1,5 ngọc
+                    case 1: // +1,5 ngọc
                         this.playerSummonShenron.inventory.gem += 10000;
                         PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
                         break;
-                    case 2: //+200 tr smtn
+                    case 2: // +200 tr smtn
                         if (this.playerSummonShenron.nPoint.power >= 2000000) {
                             Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 200000000, false);
-//                        } else {
-//                            Service.getInstance().sendThongBao(playerSummonShenron, "Xin lỗi, điều ước này khó quá, ta không thể thực hiện.");
-//                            reOpenShenronWishes(playerSummonShenron);
-//                            return;
+                            // } else {
+                            // Service.getInstance().sendThongBao(playerSummonShenron, "Xin lỗi, điều ước
+                            // này khó quá, ta không thể thực hiện.");
+                            // reOpenShenronWishes(playerSummonShenron);
+                            // return;
                         }
                         break;
-                    case 3: //găng tay đệ lên 1 cấp
+                    case 3: // găng tay đệ lên 1 cấp
                         if (this.playerSummonShenron.pet != null) {
                             Item item = this.playerSummonShenron.pet.inventory.itemsBody.get(2);
                             if (item.isNotNullItem()) {
@@ -539,12 +553,14 @@ public class SummonDragon {
                                     }
                                     Service.getInstance().point(playerSummonShenron);
                                 } else {
-                                    Service.getInstance().sendThongBao(playerSummonShenron, "Găng tay của đệ ngươi đã đạt cấp tối đa");
+                                    Service.getInstance().sendThongBao(playerSummonShenron,
+                                            "Găng tay của đệ ngươi đã đạt cấp tối đa");
                                     reOpenShenronWishes(playerSummonShenron);
                                     return;
                                 }
                             } else {
-                                Service.getInstance().sendThongBao(playerSummonShenron, "Đệ ngươi hiện tại có đeo găng đâu");
+                                Service.getInstance().sendThongBao(playerSummonShenron,
+                                        "Đệ ngươi hiện tại có đeo găng đâu");
                                 reOpenShenronWishes(playerSummonShenron);
                                 return;
                             }
@@ -558,14 +574,14 @@ public class SummonDragon {
                 break;
             case ConstNpc.SHENRON_2:
                 switch (this.select) {
-                    case 0: //+150 ngọc
+                    case 0: // +150 ngọc
                         this.playerSummonShenron.inventory.gem += 2000;
                         PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
                         break;
-                    case 1: //+20 tr smtn
+                    case 1: // +20 tr smtn
                         Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 20000000, false);
                         break;
-                    case 2: //2 tr vàng
+                    case 2: // 2 tr vàng
                         if (this.playerSummonShenron.inventory.gold > 1800000000) {
                             this.playerSummonShenron.inventory.gold = Inventory.LIMIT_GOLD;
                         } else {
@@ -577,14 +593,14 @@ public class SummonDragon {
                 break;
             case ConstNpc.SHENRON_3:
                 switch (this.select) {
-                    case 0: //+15 ngọc
+                    case 0: // +15 ngọc
                         this.playerSummonShenron.inventory.gem += 200;
                         PlayerService.gI().sendInfoHpMpMoney(this.playerSummonShenron);
                         break;
-                    case 1: //+2 tr smtn
+                    case 1: // +2 tr smtn
                         Service.getInstance().addSMTN(this.playerSummonShenron, (byte) 2, 2000000, false);
                         break;
-                    case 2: //200k vàng
+                    case 2: // 200k vàng
                         if (this.playerSummonShenron.inventory.gold > (2000000000 - 20000000)) {
                             this.playerSummonShenron.inventory.gold = Inventory.LIMIT_GOLD;
                         } else {
@@ -595,27 +611,27 @@ public class SummonDragon {
                 }
                 break;
             case ConstNpc.NAMEC_1:
-                if(select == 0){
-                    if(playerSummonShenron.clan != null){
-                        playerSummonShenron.clan.members.forEach(m->{
-                            if(Client.gI().getPlayer(m.id) != null){
+                if (select == 0) {
+                    if (playerSummonShenron.clan != null) {
+                        playerSummonShenron.clan.members.forEach(m -> {
+                            if (Client.gI().getPlayer(m.id) != null) {
                                 Player p = Client.gI().getPlayer(m.id);
-                                Item it = ItemService.gI().createNewItem((short)16);
+                                Item it = ItemService.gI().createNewItem((short) 16);
                                 it.quantity = 0;
                                 InventoryServiceNew.gI().addItemBag(p, it);
                                 InventoryServiceNew.gI().sendItemBags(p);
-                            }else{
+                            } else {
                                 Player p = GodGK.loadById(m.id);
-                                if(p != null){
-                                    Item it = ItemService.gI().createNewItem((short)16);
+                                if (p != null) {
+                                    Item it = ItemService.gI().createNewItem((short) 16);
                                     it.quantity = 0;
                                     InventoryServiceNew.gI().addItemBag(p, it);
                                     PlayerDAO.updatePlayer(p);
                                 }
                             }
                         });
-                    }else{
-                        Item it = ItemService.gI().createNewItem((short)16);
+                    } else {
+                        Item it = ItemService.gI().createNewItem((short) 16);
                         it.quantity = 0;
                         InventoryServiceNew.gI().addItemBag(playerSummonShenron, it);
                         InventoryServiceNew.gI().sendItemBags(playerSummonShenron);
@@ -669,11 +685,13 @@ public class SummonDragon {
 
     public void shenronLeave(Player pl, byte type) {
         if (type == WISHED) {
-            NpcService.gI().createTutorial(pl, -1, "Điều ước của ngươi đã trở thành sự thật\nHẹn gặp ngươi lần sau, ta đi ngủ đây, bái bai");
+            NpcService.gI().createTutorial(pl, -1,
+                    "Điều ước của ngươi đã trở thành sự thật\nHẹn gặp ngươi lần sau, ta đi ngủ đây, bái bai");
         } else {
-            NpcService.gI().createMenuRongThieng(pl, ConstNpc.IGNORE_MENU, "Ta buồn ngủ quá rồi\nHẹn gặp ngươi lần sau, ta đi đây, bái bai");
+            NpcService.gI().createMenuRongThieng(pl, ConstNpc.IGNORE_MENU,
+                    "Ta buồn ngủ quá rồi\nHẹn gặp ngươi lần sau, ta đi đây, bái bai");
         }
-        activeShenron(pl, false,SummonDragon.DRAGON_SHENRON);
+        activeShenron(pl, false, SummonDragon.DRAGON_SHENRON);
         this.isShenronAppear = false;
         this.menuShenron = -1;
         this.select = -1;
@@ -684,5 +702,5 @@ public class SummonDragon {
         lastTimeShenronAppeared = System.currentTimeMillis();
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
 }

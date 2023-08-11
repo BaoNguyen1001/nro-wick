@@ -717,26 +717,26 @@ public class UseItem {
                 pl.itemTime.isUseBanhTet = true;
                 break;
             case 382: // bổ huyết
-                if (pl.itemTime.isUseBoHuyetSC == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ huyết siêu cấp");
-                    return;
-                }
+                // if (pl.itemTime.isUseBoHuyetSC == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ huyết siêu cấp");
+                // return;
+                // }
                 pl.itemTime.lastTimeBoHuyet = System.currentTimeMillis();
                 pl.itemTime.isUseBoHuyet = true;
                 break;
             case 383: // bổ khí
-                if (pl.itemTime.isUseBoKhiSC == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ khí siêu cấp");
-                    return;
-                }
+                // if (pl.itemTime.isUseBoKhiSC == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ khí siêu cấp");
+                // return;
+                // }
                 pl.itemTime.lastTimeBoKhi = System.currentTimeMillis();
                 pl.itemTime.isUseBoKhi = true;
                 break;
             case 384: // giáp xên
-                if (pl.itemTime.isUseGiapXenSC == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng giáp xên siêu cấp");
-                    return;
-                }
+                // if (pl.itemTime.isUseGiapXenSC == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng giáp xên siêu cấp");
+                // return;
+                // }
                 pl.itemTime.lastTimeGiapXen = System.currentTimeMillis();
                 pl.itemTime.isUseGiapXen = true;
                 break;
@@ -750,10 +750,10 @@ public class UseItem {
                 Service.getInstance().point(pl);
                 break;
             case 385: // ẩn danh
-                if (pl.itemTime.isUseAnDanhSC == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng ẩn danh đặc biệt");
-                    return;
-                }
+                // if (pl.itemTime.isUseAnDanhSC == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng ẩn danh đặc biệt");
+                // return;
+                // }
                 pl.itemTime.lastTimeAnDanh = System.currentTimeMillis();
                 pl.itemTime.isUseAnDanh = true;
                 break;
@@ -766,26 +766,26 @@ public class UseItem {
                 pl.itemTime.isUseMayDoSC = true;
                 break;
             case 1100: // bổ huyết
-                if (pl.itemTime.isUseBoHuyet == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ huyết");
-                    return;
-                }
+                // if (pl.itemTime.isUseBoHuyet == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ huyết");
+                // return;
+                // }
                 pl.itemTime.lastTimeBoHuyetSC = System.currentTimeMillis();
                 pl.itemTime.isUseBoHuyetSC = true;
                 break;
             case 1101: // bổ khí
-                if (pl.itemTime.isUseBoKhi == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ khí");
-                    return;
-                }
+                // if (pl.itemTime.isUseBoKhi == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng bổ khí");
+                // return;
+                // }
                 pl.itemTime.lastTimeBoKhiSC = System.currentTimeMillis();
                 pl.itemTime.isUseBoKhiSC = true;
                 break;
             case 1102: // giáp xên
-                if (pl.itemTime.isUseGiapXen == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng giáp xên");
-                    return;
-                }
+                // if (pl.itemTime.isUseGiapXen == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng giáp xên");
+                // return;
+                // }
                 pl.itemTime.lastTimeGiapXenSC = System.currentTimeMillis();
                 pl.itemTime.isUseGiapXenSC = true;
                 break;
@@ -799,10 +799,10 @@ public class UseItem {
                 Service.getInstance().point(pl);
                 break;
             case 1103: // ẩn danh
-                if (pl.itemTime.isUseAnDanh == true) {
-                    Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng ẩn danh");
-                    return;
-                }
+                // if (pl.itemTime.isUseAnDanh == true) {
+                // Service.getInstance().sendThongBao(pl, "Bạn đang sử dụng ẩn danh");
+                // return;
+                // }
                 pl.itemTime.lastTimeAnDanhSC = System.currentTimeMillis();
                 pl.itemTime.isUseAnDanhSC = true;
                 break;
@@ -1031,6 +1031,7 @@ public class UseItem {
                     if (SkillUtil.upSkillPet(pl.pet.playerSkill.skills, 0)) {
                         Service.getInstance().chatJustForMe(pl, pl.pet, "Cảm ơn sư phụ");
                         InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                        InventoryServiceNew.gI().sendItemBags(pl);
                     } else {
                         Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
                     }
@@ -1039,6 +1040,7 @@ public class UseItem {
                     if (SkillUtil.upSkillPet(pl.pet.playerSkill.skills, 1)) {
                         Service.getInstance().chatJustForMe(pl, pl.pet, "Cảm ơn sư phụ");
                         InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                        InventoryServiceNew.gI().sendItemBags(pl);
                     } else {
                         Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
                     }
@@ -1047,6 +1049,7 @@ public class UseItem {
                     if (SkillUtil.upSkillPet(pl.pet.playerSkill.skills, 2)) {
                         Service.getInstance().chatJustForMe(pl, pl.pet, "Cảm ơn sư phụ");
                         InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                        InventoryServiceNew.gI().sendItemBags(pl);
                     } else {
                         Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
                     }
@@ -1055,6 +1058,7 @@ public class UseItem {
                     if (SkillUtil.upSkillPet(pl.pet.playerSkill.skills, 3)) {
                         Service.getInstance().chatJustForMe(pl, pl.pet, "Cảm ơn sư phụ");
                         InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                        InventoryServiceNew.gI().sendItemBags(pl);
                     } else {
                         Service.getInstance().sendThongBao(pl, "Không thể thực hiện");
                     }

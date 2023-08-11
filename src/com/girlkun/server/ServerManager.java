@@ -74,7 +74,7 @@ public class ServerManager {
     }
 
     public void run() {
-        int delay = 500;
+        int delay = 10000;
         isRunning = true;
         activeCommandLine();
         activeGame();

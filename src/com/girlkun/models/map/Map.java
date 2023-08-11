@@ -26,7 +26,7 @@ public class Map implements Runnable {
 
     public static final byte T_EMPTY = 0;
     public static final byte T_TOP = 2;
-    private static final int SIZE = 24;
+    private static final int SIZE = 11;
 
     public int mapId;
     public String mapName;
@@ -49,8 +49,8 @@ public class Map implements Runnable {
     public List<Npc> npcs;
 
     public Map(int mapId, String mapName, byte planetId,
-               byte tileId, byte bgId, byte bgType, byte type, int[][] tileMap,
-               int[] tileTop, int zones, int maxPlayer, List<WayPoint> wayPoints) {
+            byte tileId, byte bgId, byte bgType, byte type, int[][] tileMap,
+            int[] tileTop, int zones, int maxPlayer, List<WayPoint> wayPoints) {
         this.mapId = mapId;
         this.mapName = mapName;
         this.planetId = planetId;
@@ -115,11 +115,11 @@ public class Map implements Runnable {
                 for (Zone zone : this.zones) {
                     zone.update();
                 }
-               
+
                 long timeDo = System.currentTimeMillis() - st;
                 Thread.sleep(1000 - timeDo);
             } catch (Exception e) {
-//                Logger.logException(Map.class, e, "Lỗi update map " + this.mapName);
+                // Logger.logException(Map.class, e, "Lỗi update map " + this.mapName);
             }
         }
     }
@@ -169,10 +169,10 @@ public class Map implements Runnable {
                     trap.y = 960;
                     trap.w = 740;
                     trap.h = 72;
-                    trap.effectId = 49; //xiên
+                    trap.effectId = 49; // xiên
                     zone.trapMaps.add(trap);
                     break;
-               
+
             }
         }
     }
@@ -199,27 +199,27 @@ public class Map implements Runnable {
                 case 44:
                     itemMap = new ItemMap(zone, 78, 1, 70, 288, -1);
                     break;
-//                case 85: //1 sao đen
-//                    itemMap = new ItemMap(zone, 372, 1, 0, 0, -1);
-//                    break;
-//                case 86: //2 sao đen
-//                    itemMap = new ItemMap(zone, 373, 1, 0, 0, -1);
-//                    break;
-//                case 87: //3 sao đen
-//                    itemMap = new ItemMap(zone, 374, 1, 0, 0, -1);
-//                    break;
-//                case 88: //4 sao đen
-//                    itemMap = new ItemMap(zone, 375, 1, 0, 0, -1);
-//                    break;
-//                case 89: //5 sao đen
-//                    itemMap = new ItemMap(zone, 376, 1, 0, 0, -1);
-//                    break;
-//                case 90: //6 sao đen
-//                    itemMap = new ItemMap(zone, 377, 1, 0, 0, -1);
-//                    break;
-//                case 91: //7 sao đen
-//                    itemMap = new ItemMap(zone, 378, 1, 0, 0, -1);
-//                    break;
+                // case 85: //1 sao đen
+                // itemMap = new ItemMap(zone, 372, 1, 0, 0, -1);
+                // break;
+                // case 86: //2 sao đen
+                // itemMap = new ItemMap(zone, 373, 1, 0, 0, -1);
+                // break;
+                // case 87: //3 sao đen
+                // itemMap = new ItemMap(zone, 374, 1, 0, 0, -1);
+                // break;
+                // case 88: //4 sao đen
+                // itemMap = new ItemMap(zone, 375, 1, 0, 0, -1);
+                // break;
+                // case 89: //5 sao đen
+                // itemMap = new ItemMap(zone, 376, 1, 0, 0, -1);
+                // break;
+                // case 90: //6 sao đen
+                // itemMap = new ItemMap(zone, 377, 1, 0, 0, -1);
+                // break;
+                // case 91: //7 sao đen
+                // itemMap = new ItemMap(zone, 378, 1, 0, 0, -1);
+                // break;
             }
         }
 
@@ -281,7 +281,7 @@ public class Map implements Runnable {
         return null;
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public int yPhysicInTop(int x, int y) {
         try {
             int rX = (int) x / SIZE;
