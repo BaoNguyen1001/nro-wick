@@ -521,7 +521,11 @@ public class Pet extends Player {
                     return false;
                 case Skill.DICH_CHUYEN_TUC_THOI:
                     if (!this.effectSkill.isBlindDCTT && SkillService.gI().canUseSkillWithCooldown(this) && SkillService.gI().canUseSkillWithMana(this)) {
-                        SkillService.gI().useSkill(this, null, null);
+                        mobAttack = this.findMobAttack();
+                        if (mobAttack == null) {
+                            return false;
+                        }
+                        SkillService.gI().useSkill(this, playerAttack, mobAttack);
                         return true;
                     }
                     return false;
