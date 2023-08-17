@@ -50,7 +50,10 @@ import com.girlkun.network.io.Message;
 import com.girlkun.server.ServerManager;
 import com.girlkun.services.ItemMapService;
 import com.girlkun.services.MapService;
+import com.girlkun.services.func.ChangeMapService;
+import com.girlkun.utils.Util;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.jackson.Jacksonized;
@@ -138,7 +141,7 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.MABU);
             this.createBoss(BossID.COOLER);
             this.createBoss(BossID.JACKI_CHUN);
-            
+
             this.createBoss(BossID.SONTINH);
             this.createBoss(BossID.THUYTINH);
         } catch (Exception ex) {
@@ -167,7 +170,7 @@ public class BossManager implements Runnable {
                     return new BuiBui();
                 case BossID.BUI_BUI_2:
                     return new BuiBui2();
-                 
+
                 case BossID.YA_CON:
                     return new Yacon();
                 case BossID.MABU_12H:
@@ -232,7 +235,7 @@ public class BossManager implements Runnable {
                     return new ZamasKaio();
                 case BossID.BLACK2:
                     return new SuperBlack2();
-         
+
                 case BossID.BLACK1:
                     return new BlackGokuTl();
                 case BossID.BLACK:
@@ -256,12 +259,12 @@ public class BossManager implements Runnable {
                 case BossID.VEGETA_TS:
                     return new vegeta();
                 case BossID.PICOLO_TS:
-                    return new picolo();  
+                    return new picolo();
                 case BossID.SONGOKU_TA_AC:
                     return new SongokuTaAc();
                 case BossID.FROST:
                     return new Frost();
-                    
+
                 case BossID.SONTINH:
                     return new sontinh();
                 case BossID.THUYTINH:
@@ -281,35 +284,42 @@ public class BossManager implements Runnable {
     }
 
     public void showListBoss(Player player) {
-        if (!player.isAdmin()) {
-            return;
-        }
+        // if (!player.isAdmin()) {
+        // return;
+        // }
         Message msg;
         try {
             msg = new Message(-96);
             msg.writer().writeByte(0);
             msg.writer().writeUTF("Boss");
-            msg.writer().writeByte((int) bosses.stream().filter(boss -> !MapService.gI().isMapMaBu(boss.data[0].getMapJoin()[0]) && !MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0])).count());
+            msg.writer()
+                    .writeByte(
+                            (int) bosses.stream()
+                                    .filter(boss -> !MapService.gI().isMapMaBu(boss.data[0].getMapJoin()[0])
+                                            && !MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0]))
+                                    .count());
             for (int i = 0; i < bosses.size(); i++) {
                 Boss boss = this.bosses.get(i);
-                if (MapService.gI().isMapMaBu(boss.data[0].getMapJoin()[0]) || MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0])) {
+                if (MapService.gI().isMapMaBu(boss.data[0].getMapJoin()[0])
+                        || MapService.gI().isMapBlackBallWar(boss.data[0].getMapJoin()[0])) {
                     continue;
                 }
                 msg.writer().writeInt(i);
-                msg.writer().writeInt(i);
+                msg.writer().writeInt((int) boss.id);
                 msg.writer().writeShort(boss.data[0].getOutfit()[0]);
-                msg.writer().writeShort(boss.data[0].getOutfit()[1]);
                 if (player.getSession().version > 214) {
                     msg.writer().writeShort(-1);
                 }
+                msg.writer().writeShort(boss.data[0].getOutfit()[1]);
                 msg.writer().writeShort(boss.data[0].getOutfit()[2]);
                 msg.writer().writeUTF(boss.data[0].getName());
-                if (boss.zone != null) {
+                if (!boss.isDie()) {
                     msg.writer().writeUTF("Sống");
-                    msg.writer().writeUTF(boss.zone.map.mapName + "(" + boss.zone.map.mapId + ") khu " + boss.zone.zoneId + "");
+                    msg.writer().writeUTF(
+                            boss.zone.map.mapName + "(" + boss.zone.map.mapId + ")");
                 } else {
                     msg.writer().writeUTF("Chết");
-                    msg.writer().writeUTF("Chết rồi");
+                    msg.writer().writeUTF("Chờ lượt sau đi nhé :>");
                 }
             }
             player.sendMessage(msg);
@@ -322,7 +332,8 @@ public class BossManager implements Runnable {
     public synchronized void callBoss(Player player, int mapId) {
         try {
             if (BossManager.gI().existBossOnPlayer(player)
-                    || player.zone.items.stream().anyMatch(itemMap -> ItemMapService.gI().isBlackBall(itemMap.itemTemplate.id))
+                    || player.zone.items.stream()
+                            .anyMatch(itemMap -> ItemMapService.gI().isBlackBall(itemMap.itemTemplate.id))
                     || player.zone.getPlayers().stream().anyMatch(p -> p.iDMark.isHoldBlackBall())) {
                 return;
             }
@@ -360,7 +371,25 @@ public class BossManager implements Runnable {
     }
 
     public Boss getBossById(int bossId) {
-        return BossManager.gI().bosses.stream().filter(boss -> boss.id == bossId && !boss.isDie()).findFirst().orElse(null);
+        return BossManager.gI().bosses.stream().filter(boss -> boss.id == bossId && !boss.isDie()).findFirst()
+                .orElse(null);
+    }
+
+    public void teleBoss(Player player, Message msg) {
+        try {
+            int bossId = msg.reader().readInt();
+            if (bossId != -1) {
+                Boss boss = this.getBossById(bossId);
+                if (boss != null) {
+                    ChangeMapService.gI().changeMapYardrat(player, boss.zone, boss.location.x +
+                            Util.nextInt(-5, 5), boss.location.y);
+                }
+            }
+
+        } catch (IOException ex) {
+
+        }
+
     }
 
     @Override

@@ -126,6 +126,8 @@ public class PlayerDAO {
                     options.add(opt.toJSONString());
                     opt.clear();
                 } else if (i == 1) { // thỏi vàng
+                    opt.add(73); // id option
+                    opt.add(0);
                     item.add(457); // id item
                     item.add(20); // số lượng
                     options.add(opt.toJSONString());

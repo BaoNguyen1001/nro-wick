@@ -535,6 +535,9 @@ public class Controller implements IMessageHandler {
                     if (player != null) {
                         PlayerService.gI().hoiSinh(player);
                     }
+                case -118:
+                    BossManager.gI().teleBoss(player, _msg);
+                    break;
                 default:
                     // Util.log("CMD: " + cmd);
                     break;

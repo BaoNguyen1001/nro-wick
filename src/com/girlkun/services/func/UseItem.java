@@ -4,6 +4,7 @@ import com.arriety.card.Card;
 import com.arriety.card.RadarCard;
 import com.arriety.card.RadarService;
 import com.girlkun.consts.ConstMap;
+import com.girlkun.models.boss.BossManager;
 import com.girlkun.models.item.Item;
 import com.girlkun.consts.ConstNpc;
 import com.girlkun.consts.ConstPlayer;
@@ -462,6 +463,11 @@ public class UseItem {
                             break;
 
                         }
+                        case 2114:
+                            BossManager.gI().showListBoss(pl);
+                            InventoryServiceNew.gI().subQuantityItemsBag(pl, item, 1);
+                            InventoryServiceNew.gI().sendItemBags(pl);
+                            break;
                     }
             }
         }

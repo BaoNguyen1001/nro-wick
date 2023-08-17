@@ -2185,6 +2185,9 @@ public class CombineServiceNew {
                         }
                     } else {
                         sendEffectFailCombine(player);
+                        InventoryServiceNew.gI().subQuantityItemsBag(player, item1, 1);
+                        InventoryServiceNew.gI().subQuantityItemsBag(player, item2, 1);
+                        InventoryServiceNew.gI().subQuantityItemsBag(player, item3, 1);
                     }
                     player.combineNew.itemsCombine.clear();
                     reOpenItemCombine(player);
@@ -2409,6 +2412,7 @@ public class CombineServiceNew {
                         InventoryServiceNew.gI().subQuantityItemsBag(player, dtl, 1);
                     } else {
                         sendEffectFailCombine(player);
+                        InventoryServiceNew.gI().subQuantityItemsBag(player, dtl, 1);
                     }
                     InventoryServiceNew.gI().sendItemBags(player);
                     Service.getInstance().sendMoney(player);

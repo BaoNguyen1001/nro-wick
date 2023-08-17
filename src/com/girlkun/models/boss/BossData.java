@@ -2,7 +2,6 @@ package com.girlkun.models.boss;
 
 import lombok.Data;
 
-
 @Data
 public class BossData {
 
@@ -81,8 +80,3 @@ public class BossData {
         this.typeAppear = typeAppear;
     }
 }
-
-/**
- * Vui lòng không sao chép mã nguồn này dưới mọi hình thức. Hãy tôn trọng tác
- * giả của mã nguồn này. Xin cảm ơn! - Girlkun75
- */

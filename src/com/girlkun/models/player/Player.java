@@ -49,7 +49,7 @@ public class Player {
     private MySession session;
 
     public boolean beforeDispose;
-    
+
     private int idItemUpTop;
     public boolean isPet;
     public boolean isNewPet;
@@ -147,7 +147,7 @@ public class Player {
         rewardBlackBall = new RewardBlackBall(this);
         effectFlagBag = new EffectFlagBag();
         fightMabu = new FightMabu(this);
-        //----------------------------------------------------------------------
+        // ----------------------------------------------------------------------
         iDMark = new IDMark();
         combineNew = new CombineNew();
         playerTask = new TaskPlayer();
@@ -159,7 +159,7 @@ public class Player {
         effectSkin = new EffectSkin(this);
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public boolean isDie() {
         if (this.nPoint != null) {
             return this.nPoint.hp <= 0;
@@ -167,7 +167,7 @@ public class Player {
         return true;
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public void setSession(MySession session) {
         this.session = session;
     }
@@ -218,41 +218,44 @@ public class Player {
                     if (itemTime != null) {
                         itemTime.update();
                     }
-                    if (minipet != null) {
-                        minipet.update();
-                    }
+                    // if (minipet != null) {
+                    // minipet.update();
+                    // }
 
-                    if (this.inventory.itemsBody.size() == 12) {
-                        if (this.inventory.itemsBody.get(7).isNullItem() && callisMiniPet1 == true) {
-                            minipet.changeStatus(MiniPet.GOHOME);
-                            callisMiniPet1 = false;
-                        }
-                    }
-                    if (this.inventory.itemsBody.size() == 12) {
-                        if (this.inventory.itemsBody.get(7).isNotNullItem() && callisMiniPet == false) {
-                            MiniPet.callMiniPet(this, this.inventory.itemsBody.get(7).template.id);
-                            callisMiniPet = true;
-                            callisMiniPet1 = true;
-                        }
-                    }
-                    if (this.clan != null && !this.isBoss && !this.isMiniPet && !this.isPet && this != null && clan.getMembers().size() >= 1) {
-                        TaskService.gI().checkDoneTaskJoinClan(this);
-                    }
+                    // if (this.inventory.itemsBody.size() == 12) {
+                    // if (this.inventory.itemsBody.get(7).isNullItem() && callisMiniPet1 == true) {
+                    // minipet.changeStatus(MiniPet.GOHOME);
+                    // callisMiniPet1 = false;
+                    // }
+                    // }
+                    // if (this.inventory.itemsBody.size() == 12) {
+                    // if (this.inventory.itemsBody.get(7).isNotNullItem() && callisMiniPet ==
+                    // false) {
+                    // MiniPet.callMiniPet(this, this.inventory.itemsBody.get(7).template.id);
+                    // callisMiniPet = true;
+                    // callisMiniPet1 = true;
+                    // }
+                    // }
+                    // if (this.clan != null && !this.isBoss && !this.isMiniPet && !this.isPet &&
+                    // this != null && clan.getMembers().size() >= 1) {
+                    // TaskService.gI().checkDoneTaskJoinClan(this);
+                    // }
                     BlackBallWar.gI().update(this);
                     MapMaBu.gI().update(this);
-//                    BanDoKhoBau.gI().update(this);
+                    // BanDoKhoBau.gI().update(this);
                     if (this.iDMark.isGoToBDKB() && Util.canDoWithTime(this.iDMark.getLastTimeGoToBDKB(), 6000)) {
                         ChangeMapService.gI().changeMapBySpaceShip(this, 135, -1, 35);
                         this.iDMark.setGoToBDKB(false);
                     }
 
-                    if (!isBoss && this.iDMark.isGotoFuture() && Util.canDoWithTime(this.iDMark.getLastTimeGoToFuture(), 6000)) {
+                    if (!isBoss && this.iDMark.isGotoFuture()
+                            && Util.canDoWithTime(this.iDMark.getLastTimeGoToFuture(), 6000)) {
                         ChangeMapService.gI().changeMapBySpaceShip(this, 102, -1, Util.nextInt(60, 200));
                         this.iDMark.setGotoFuture(false);
                     }
 
                     if (this.iDMark.isGoToGas() && Util.canDoWithTime(this.iDMark.getLastTimeGotoGas(), 6000)) {
-//                        ChangeMapService.gI().changeMapBySpaceShip(this, 149, -1, 163);
+                        // ChangeMapService.gI().changeMapBySpaceShip(this, 149, -1, 163);
                         ChangeMapService.gI().changeMapBySpaceShip(this, 149, -1, 163);
                         this.iDMark.setGoToGas(false);
                     }
@@ -277,7 +280,7 @@ public class Player {
         }
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     /*
      * {380, 381, 382}: ht lưỡng long nhất thể xayda trái đất
      * {383, 384, 385}: ht porata xayda trái đất
@@ -287,10 +290,10 @@ public class Player {
      * {867, 878, 869}: ht c2 xayda
      */
     private static final short[][] idOutfitFusion = {
-        {380, 381, 382}, {383, 384, 385}, {391, 392, 393},
-        {870, 871, 872}, {873, 874, 875}, {867, 868, 869},
-        {1267, 1268, 1269}, {1270, 1271, 1272}, {1273, 1274, 1275},
-        {1207, 1208, 1209}, {1213, 1214, 1215}, {1210, 1211, 1212}
+            { 380, 381, 382 }, { 383, 384, 385 }, { 391, 392, 393 },
+            { 870, 871, 872 }, { 873, 874, 875 }, { 867, 868, 869 },
+            { 1267, 1268, 1269 }, { 1270, 1271, 1272 }, { 1273, 1274, 1275 },
+            { 1207, 1208, 1209 }, { 1213, 1214, 1215 }, { 1210, 1211, 1212 }
     };
 
     public byte getAura() {
@@ -302,27 +305,28 @@ public class Player {
                 if (inventory.itemsBody.get(5) != null) {
                     Item item = this.inventory.itemsBody.get(5);
                     if (!item.isNotNullItem()) {
-                        return -1;}
+                        return -1;
+                    }
                     if (item.template.id == 1133) {
-                        return 54;   
+                        return 54;
                     } else if (item.template.id == 2051) {
-                        return 1;  
+                        return 1;
                     } else if (item.template.id == 1121) {
-                        return 37;  
+                        return 37;
                     } else if (item.template.id == 1126) {
-                        return 27; 
+                        return 27;
                     } else if (item.template.id == 2095) {
                         return 39;
                     } else if (item.template.id == 1127) {
                         return 43;
                     } else if (item.template.id == 1129) {
-                        return 1; 
+                        return 1;
                     } else if (item.template.id == 2049) {
                         return 11;
                     } else if (item.template.id == 1134) {
                         return 38;
                     } else if (item.template.id == 1135) {
-                        return 42; 
+                        return 42;
                     } else if (item.template.id == 1131) {
                     } else {
                         return -1;
@@ -457,7 +461,7 @@ public class Player {
         if (this.inventory.itemsBody.size() == 12) {
             if (this.inventory.itemsBody.get(8).isNotNullItem()) {
                 return this.inventory.itemsBody.get(8).template.part;
-                //return 104;
+                // return 104;
             }
         }
         if (TaskService.gI().getIdTask(this) == ConstTask.TASK_3_2) {
@@ -491,28 +495,28 @@ public class Player {
             }
         }
 
-//        for (Item item : inventory.itemsBag) {
-//            if (item.isNotNullItem()) {
-//                if (item.template.type == 24) {
-//                    if (item.template.gender == 3 || item.template.gender == this.gender) {
-//                        return item.template.id;
-//                    } else {
-//                        return -1;
-//                    }
-//                }
-//                if (item.template.type == 23) {
-//                    if (item.template.id < 500) {
-//                        return item.template.id;
-//                    } else {
-//                        return (short) DataGame.MAP_MOUNT_NUM.get(String.valueOf(item.template.id));
-//                    }
-//                }
-//            }
-//        }
-//        return -1;
+        // for (Item item : inventory.itemsBag) {
+        // if (item.isNotNullItem()) {
+        // if (item.template.type == 24) {
+        // if (item.template.gender == 3 || item.template.gender == this.gender) {
+        // return item.template.id;
+        // } else {
+        // return -1;
+        // }
+        // }
+        // if (item.template.type == 23) {
+        // if (item.template.id < 500) {
+        // return item.template.id;
+        // } else {
+        // return (short) DataGame.MAP_MOUNT_NUM.get(String.valueOf(item.template.id));
+        // }
+        // }
+        // }
+        // }
+        // return -1;
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public int injured(Player plAtt, int damage, boolean piercing, boolean isMobAttack) {
         if (!this.isDie()) {
             if (plAtt != null) {
@@ -521,7 +525,8 @@ public class Player {
                     case Skill.MASENKO:
                     case Skill.ANTOMIC:
                         if (this.nPoint.voHieuChuong > 0) {
-                            com.girlkun.services.PlayerService.gI().hoiPhuc(this, 0, damage * this.nPoint.voHieuChuong / 100);
+                            com.girlkun.services.PlayerService.gI().hoiPhuc(this, 0,
+                                    damage * this.nPoint.voHieuChuong / 100);
                             return 0;
                         }
                 }
@@ -554,40 +559,41 @@ public class Player {
     }
 
     protected void setDie(Player plAtt) {
-        //xóa phù
+        // xóa phù
         if (this.effectSkin.xHPKI > 1) {
             this.effectSkin.xHPKI = 1;
             Service.getInstance().point(this);
         }
-        //xóa tụ skill đặc biệt
+        // xóa tụ skill đặc biệt
         this.playerSkill.prepareQCKK = false;
         this.playerSkill.prepareLaze = false;
         this.playerSkill.prepareTuSat = false;
-        //xóa hiệu ứng skill
+        // xóa hiệu ứng skill
         this.effectSkill.removeSkillEffectWhenDie();
         //
         nPoint.setHp(0);
         nPoint.setMp(0);
-        //xóa trứng
+        // xóa trứng
         if (this.mobMe != null) {
             this.mobMe.mobMeDie();
         }
         Service.getInstance().charDie(this);
-        //add kẻ thù
-        if (!this.isPet && !this.isNewPet && !this.isBoss && plAtt != null && !plAtt.isPet && !plAtt.isNewPet && !plAtt.isBoss) {
+        // add kẻ thù
+        if (!this.isPet && !this.isNewPet && !this.isBoss && plAtt != null && !plAtt.isPet && !plAtt.isNewPet
+                && !plAtt.isBoss) {
             if (!plAtt.itemTime.isUseAnDanh) {
                 FriendAndEnemyService.gI().addEnemy(this, plAtt);
             }
         }
-        //kết thúc pk
+        // kết thúc pk
         if (this.pvp != null) {
             this.pvp.lose(this, TYPE_LOSE_PVP.DEAD);
         }
-//        PVPServcice.gI().finishPVP(this, PVP.TYPE_DIE);
+        // PVPServcice.gI().finishPVP(this, PVP.TYPE_DIE);
         BlackBallWar.gI().dropBlackBall(this);
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public void setClanMember() {
         if (this.clanMember != null) {
             this.clanMember.powerPoint = this.nPoint.power;

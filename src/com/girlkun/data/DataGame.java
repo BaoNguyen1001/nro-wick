@@ -35,7 +35,7 @@ public class DataGame {
     public static byte vsItem = 80;
     public static int vsRes = 752011;
 
-    public static String LINK_IP_PORT = "Girlkun75-1:localhost:14445:0";
+    public static String LINK_IP_PORT = "NRO MBARO:localhost:14445:0";
     private static final String MOUNT_NUM = "733:1,734:2,735:3,743:4,744:5,746:6,795:7,849:8,897:9,920:10";
     public static final Map MAP_MOUNT_NUM = new HashMap();
 
@@ -62,9 +62,9 @@ public class DataGame {
             msg.writer().writeByte(vsItem);
             msg.writer().writeByte(0);
 
-            long[] smtieuchuan = {1000L, 3000L, 15000L, 40000L, 90000L, 170000L, 340000L, 700000L,
-                1500000L, 15000000L, 150000000L, 1500000000L, 5000000000L, 10000000000L, 40000000000L,
-                50010000000L, 60010000000L, 70010000000L, 80010000000L, 100010000000L};
+            long[] smtieuchuan = { 1000L, 3000L, 15000L, 40000L, 90000L, 170000L, 340000L, 700000L,
+                    1500000L, 15000000L, 150000000L, 1500000000L, 5000000000L, 10000000000L, 40000000000L,
+                    50010000000L, 60010000000L, 70010000000L, 80010000000L, 100010000000L };
             msg.writer().writeByte(smtieuchuan.length);
             for (int i = 0; i < smtieuchuan.length; i++) {
                 msg.writer().writeLong(smtieuchuan[i]);
@@ -75,7 +75,7 @@ public class DataGame {
         }
     }
 
-    //vcData
+    // vcData
     public static void updateData(MySession session) {
         System.out.println("update data");
         byte[] dart = FileIO.readFile("data/girlkun/update_data/dart");
@@ -108,7 +108,7 @@ public class DataGame {
         }
     }
 
-    //vcMap
+    // vcMap
     public static void updateMap(MySession session) {
         Message msg;
         try {
@@ -142,7 +142,7 @@ public class DataGame {
         }
     }
 
-    //vcSkill
+    // vcSkill
     public static void updateSkill(MySession session) {
         System.out.println("update skill");
         Message msg;
@@ -151,7 +151,7 @@ public class DataGame {
 
             msg.writer().writeByte(7);
             msg.writer().writeByte(vsSkill);
-            msg.writer().writeByte(0); //count skill option
+            msg.writer().writeByte(0); // count skill option
 
             msg.writer().writeByte(Manager.NCLASS.size());
             for (NClass nClass : Manager.NCLASS) {
@@ -183,7 +183,7 @@ public class DataGame {
                             msg.writer().writeUTF(skill.moreInfo);
                         }
                     } else {
-                        //Thêm 2 skill trống 105, 106
+                        // Thêm 2 skill trống 105, 106
                         msg.writer().writeByte(skillTemp.skillss.size() + 2);
                         for (Skill skill : skillTemp.skillss) {
                             msg.writer().writeShort(skill.skillId);
@@ -233,7 +233,7 @@ public class DataGame {
         }
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public static void sendEffectTemplate(MySession session, int id) {
         Message msg;
         try {
@@ -254,7 +254,8 @@ public class DataGame {
         Message msg;
         try {
             byte[] effData = FileIO.readFile("data/girlkun/effect/x" + session.zoomLevel + "/data/DataEffect_" + idT);
-            byte[] effImg = FileIO.readFile("data/girlkun/effect/x" + session.zoomLevel + "/img/ImgEffect_" + idT + ".png");
+            byte[] effImg = FileIO
+                    .readFile("data/girlkun/effect/x" + session.zoomLevel + "/img/ImgEffect_" + idT + ".png");
             msg = new Message(-66);
             msg.writer().writeShort(id);
             msg.writer().writeInt(effData.length);
@@ -326,12 +327,12 @@ public class DataGame {
     private static List<Integer> list = new ArrayList<>();
 
     public static void requestMobTemplate(MySession session, int id) {
-//        if (list.contains(id)) {
-//            System.out.println("send mob: " + id);
-//            return;
-//        } else {
-//            list.add(id);
-//        }
+        // if (list.contains(id)) {
+        // System.out.println("send mob: " + id);
+        // return;
+        // } else {
+        // list.add(id);
+        // }
         Message msg;
         try {
             byte[] mob = FileIO.readFile("data/girlkun/mob/x" + session.zoomLevel + "/" + id);
@@ -378,9 +379,9 @@ public class DataGame {
     public static void mainzz(String[] args) throws Exception {
         List<String> list = new ArrayList<>();
         File folder = new File("C:\\Users\\admin\\Desktop\\nro qltk java by girlkun\\girlkun\\map\\tile_map_data");
-//        for (File f : folder.listFiles()) {
-//            list.add(f.getName());
-//        }
+        // for (File f : folder.listFiles()) {
+        // list.add(f.getName());
+        // }
         folder = new File("C:\\Users\\admin\\Desktop\\cbro\\data\\girlkun\\map\\tile_map_dataz");
         for (File f : folder.listFiles()) {
             if (!list.contains(f.getName())) {
@@ -393,7 +394,8 @@ public class DataGame {
                     data[i] = dis.readByte();
                 }
                 dis.close();
-                DataOutputStream dos = new DataOutputStream(new FileOutputStream("C:\\Users\\admin\\Desktop\\cbro\\data\\girlkun\\map\\tile_map_data\\" + f.getName()));
+                DataOutputStream dos = new DataOutputStream(new FileOutputStream(
+                        "C:\\Users\\admin\\Desktop\\cbro\\data\\girlkun\\map\\tile_map_data\\" + f.getName()));
                 dos.writeByte(w);
                 dos.writeByte(h);
                 for (int i = 0; i < data.length; i++) {
@@ -408,7 +410,7 @@ public class DataGame {
         System.out.println("done");
     }
 
-    //data vẽ map
+    // data vẽ map
     public static void sendMapTemp(MySession session, int id) {
         Message msg;
         try {
@@ -433,7 +435,7 @@ public class DataGame {
         }
     }
 
-    //head-avatar
+    // head-avatar
     public static void sendHeadAvatar(Message msg) {
         try {
             msg.writer().writeShort(Manager.HEAD_AVATARS.size());
@@ -460,7 +462,7 @@ public class DataGame {
         }
     }
 
-    //download data res --------------------------------------------------------
+    // download data res --------------------------------------------------------
     public static void sendVersionRes(ISession session) {
         Message msg;
         try {

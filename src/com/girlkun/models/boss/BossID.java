@@ -10,7 +10,7 @@ public class BossID {
     public static final int MAP_DAU_DINH = -21;
     public static final int RAMBO = -22;
 
-//   
+    //
     public static final int SO_4 = -23;
     public static final int SO_3 = -24;
     public static final int SO_2 = -25;
@@ -58,12 +58,12 @@ public class BossID {
     public static final int MABU = -214;
     public static final int CUMBER = -215;
     public static final int BLACK3 = -231;
-    public static final int BROLY = -1;
+    public static final int BROLY = -2;
 
     public static final int SONGOKU_TA_AC = -217;
     public static final int FIDE_ROBOT = -216;
 
-    //super 17 saga
+    // super 17 saga
     public static final int SUPER_ANDROID_17 = -218;
     public static final int DR_MYUU = -219;
     public static final int DR_KORE_GT = -220;
@@ -76,7 +76,7 @@ public class BossID {
     public static final int Rong_6Sao = -229;
     public static final int Rong_7Sao = -230;
 
-    //mabu 12h
+    // mabu 12h
     public static final int DRABURA = -233;
     public static final int BUI_BUI = -234;
     public static final int YA_CON = -235;
@@ -99,11 +99,10 @@ public class BossID {
 
     public static final int JACKI_CHUN = -247;
     public static final int FROST = -299;
-    
+
     public static final int SONTINH = -248;
     public static final int THUYTINH = -249;
     public static final int minuong = -316;
     public static final int xen = -323;
-
 
 }
