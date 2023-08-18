@@ -26,7 +26,7 @@ public class Map implements Runnable {
 
     public static final byte T_EMPTY = 0;
     public static final byte T_TOP = 2;
-    private static final int SIZE = 11;
+    private static final int SIZE = 24;
 
     public int mapId;
     public String mapName;

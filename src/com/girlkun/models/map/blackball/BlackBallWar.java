@@ -14,7 +14,6 @@ import com.girlkun.utils.Util;
 import java.util.Date;
 import java.util.List;
 
-
 public class BlackBallWar {
 
     private static final int TIME_CAN_PICK_BLACK_BALL_AFTER_DROP = 5000;
@@ -27,7 +26,7 @@ public class BlackBallWar {
     public static final int COST_X5 = 300000000;
     public static final int COST_X7 = 500000000;
 
-    public static final byte HOUR_OPEN = 20;
+    public static final byte HOUR_OPEN = 0;
     public static final byte MIN_OPEN = 0;
     public static final byte SECOND_OPEN = 0;
 
@@ -35,24 +34,24 @@ public class BlackBallWar {
     public static final byte MIN_CAN_PICK_DB = 30;
     public static final byte SECOND_CAN_PICK_DB = 0;
 
-    public static final byte HOUR_CLOSE = 21;
-    public static final byte MIN_CLOSE = 0;
-    public static final byte SECOND_CLOSE = 0;
+    public static final byte HOUR_CLOSE = 23;
+    public static final byte MIN_CLOSE = 59;
+    public static final byte SECOND_CLOSE = 59;
 
-    //    public static final byte HOUR_OPEN = 20;
-//    public static final byte MIN_OPEN = 0;
-//    public static final byte SECOND_OPEN = 0;
-//
-//    public static final byte HOUR_CAN_PICK_DB = 1;
-//    public static final byte MIN_CAN_PICK_DB = 30;
-//    public static final byte SECOND_CAN_PICK_DB = 0;
-//
-//    public static final byte HOUR_CLOSE = 21;
-//    public static final byte MIN_CLOSE = 0;
-//    public static final byte SECOND_CLOSE = 0;
-    //*************************************
+    // public static final byte HOUR_OPEN = 20;
+    // public static final byte MIN_OPEN = 0;
+    // public static final byte SECOND_OPEN = 0;
+    //
+    // public static final byte HOUR_CAN_PICK_DB = 1;
+    // public static final byte MIN_CAN_PICK_DB = 30;
+    // public static final byte SECOND_CAN_PICK_DB = 0;
+    //
+    // public static final byte HOUR_CLOSE = 21;
+    // public static final byte MIN_CLOSE = 0;
+    // public static final byte SECOND_CLOSE = 0;
+    // *************************************
     public static final int AVAILABLE = 7;
-    private static final int TIME_WIN = 300000; //cam toi thieu 300k mili = 5p
+    private static final int TIME_WIN = 300000; // cam toi thieu 300k mili = 5p
 
     private static BlackBallWar i;
 
@@ -74,9 +73,14 @@ public class BlackBallWar {
         if (i.day == -1 || i.day != TimeUtil.getCurrDay()) {
             i.day = TimeUtil.getCurrDay();
             try {
-                this.TIME_OPEN = TimeUtil.getTime(TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_OPEN + ":" + MIN_OPEN + ":" + SECOND_OPEN, "dd/MM/yyyy HH:mm:ss");
-                this.TIME_CAN_PICK_DB = TimeUtil.getTime(TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_CAN_PICK_DB + ":" + MIN_CAN_PICK_DB + ":" + SECOND_CAN_PICK_DB, "dd/MM/yyyy HH:mm:ss");
-                this.TIME_CLOSE = TimeUtil.getTime(TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_CLOSE + ":" + MIN_CLOSE + ":" + SECOND_CLOSE, "dd/MM/yyyy HH:mm:ss");
+                this.TIME_OPEN = TimeUtil.getTime(
+                        TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_OPEN + ":" + MIN_OPEN + ":" + SECOND_OPEN,
+                        "dd/MM/yyyy HH:mm:ss");
+                this.TIME_CAN_PICK_DB = TimeUtil.getTime(TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_CAN_PICK_DB
+                        + ":" + MIN_CAN_PICK_DB + ":" + SECOND_CAN_PICK_DB, "dd/MM/yyyy HH:mm:ss");
+                this.TIME_CLOSE = TimeUtil.getTime(
+                        TimeUtil.getTimeNow("dd/MM/yyyy") + " " + HOUR_CLOSE + ":" + MIN_CLOSE + ":" + SECOND_CLOSE,
+                        "dd/MM/yyyy HH:mm:ss");
             } catch (Exception e) {
             }
         }
@@ -92,7 +96,7 @@ public class BlackBallWar {
             Service.getInstance().dropItemMap(itemMap.zone, itemMap);
             player.iDMark.setTempIdBlackBallHold(-1);
             player.zone.lastTimeDropBlackBall = System.currentTimeMillis();
-            Service.getInstance().sendFlagBag(player); //gui vao tui do
+            Service.getInstance().sendFlagBag(player); // gui vao tui do
 
             if (player.clan != null) {
                 List<Player> players = player.zone.getPlayers();
@@ -213,7 +217,8 @@ public class BlackBallWar {
             if (System.currentTimeMillis() < this.TIME_CAN_PICK_DB) {
                 Service.getInstance().sendThongBao(player, "Chưa thể nhặt ngọc rồng ngay lúc này, vui lòng đợi "
                         + TimeUtil.diffDate(new Date(this.TIME_CAN_PICK_DB),
-                        new Date(System.currentTimeMillis()), TimeUtil.SECOND) + " giây nữa");
+                                new Date(System.currentTimeMillis()), TimeUtil.SECOND)
+                        + " giây nữa");
                 return false;
             } else if (player.zone.finishBlackBallWar) {
                 Service.getInstance().sendThongBao(player, "Đại chiến ngọc rồng sao đen "

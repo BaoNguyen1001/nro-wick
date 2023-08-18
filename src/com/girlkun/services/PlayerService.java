@@ -8,7 +8,6 @@ import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.Util;
 
-
 public class PlayerService {
 
     private static PlayerService i;
@@ -90,7 +89,7 @@ public class PlayerService {
             player.nPoint.addHp(hp);
             player.nPoint.addMp(mp);
             Service.getInstance().Send_Info_NV(player);
-            if (!player.isPet&&!player.isNewPet) {
+            if (!player.isPet && !player.isNewPet) {
                 PlayerService.gI().sendInfoHpMp(player);
             }
         }
@@ -109,10 +108,10 @@ public class PlayerService {
             } catch (Exception e) {
                 msg.writer().writeInt((int) player.inventory.gold);
             }
-            msg.writer().writeInt(player.inventory.gem);//luong
-            msg.writer().writeInt(player.nPoint.hp);//chp
-            msg.writer().writeInt(player.nPoint.mp);//cmp
-            msg.writer().writeInt(player.inventory.ruby);//ruby
+            msg.writer().writeInt(player.inventory.gem);// luong
+            msg.writer().writeInt(player.nPoint.hp);// chp
+            msg.writer().writeInt(player.nPoint.mp);// cmp
+            msg.writer().writeInt(player.inventory.ruby);// ruby
             player.sendMessage(msg);
         } catch (Exception e) {
             Logger.logException(PlayerService.class, e);
@@ -133,7 +132,7 @@ public class PlayerService {
             player.location.x = x;
             player.location.y = y;
             player.location.lastTimeplayerMove = System.currentTimeMillis();
-           switch (player.zone.map.mapId) {
+            switch (player.zone.map.mapId) {
                 case 85:
                 case 86:
                 case 87:
@@ -141,8 +140,10 @@ public class PlayerService {
                 case 89:
                 case 90:
                 case 91:
-                    if (!player.isBoss && !player.isPet && !player.isMiniPet) {
-                        if (x < 24 || x > player.zone.map.mapWidth - 24 || y < 0 || y > player.zone.map.mapHeight - 24) {
+                    // if (!player.isBoss && !player.isPet && !player.isMiniPet) {
+                    if (!player.isBoss && !player.isPet) {
+                        if (x < 24 || x > player.zone.map.mapWidth - 24 || y < 0
+                                || y > player.zone.map.mapHeight - 24) {
                             if (MapService.gI().getWaypointPlayerIn(player) == null) {
                                 ChangeMapService.gI().changeMap(player, 21 + player.gender, 0, 200, 336);
                                 return;
@@ -224,7 +225,7 @@ public class PlayerService {
         playerBaned.iDMark.setBan(true);
     }
 
-       public void ActivePlayer(Player playerActived) {
+    public void ActivePlayer(Player playerActived) {
         try {
             GirlkunDB.executeUpdate("update account set active = 1 where id = ? and username = ?",
                     playerActived.getSession().userId, playerActived.getSession().uu);
@@ -234,6 +235,7 @@ public class PlayerService {
                 "Tài khoản của bạn đã trở thành chính thức tại server ONE");
         playerActived.iDMark.setActive(true);
     }
+
     private static final int COST_GOLD_HOI_SINH = 10000000;
     private static final int COST_GEM_HOI_SINH = 1;
     private static final int COST_GOLD_HOI_SINH_NRSD = 20000000;
@@ -246,8 +248,9 @@ public class PlayerService {
                     player.inventory.gold -= COST_GOLD_HOI_SINH_NRSD;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH_NRSD
-                            - player.inventory.gold) + " vàng");
+                    Service.getInstance().sendThongBao(player,
+                            "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH_NRSD
+                                    - player.inventory.gold) + " vàng");
                     return;
                 }
             } else {
@@ -255,8 +258,9 @@ public class PlayerService {
                     player.inventory.gem -= COST_GEM_HOI_SINH;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GEM_HOI_SINH
-                            - player.inventory.gem) + " vàng");
+                    Service.getInstance().sendThongBao(player,
+                            "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GEM_HOI_SINH
+                                    - player.inventory.gem) + " vàng");
                     return;
                 }
             }
@@ -275,8 +279,9 @@ public class PlayerService {
                     player.inventory.gold -= COST_GOLD_HOI_SINH_NRSD;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH_NRSD
-                            - player.inventory.gold) + " vàng");
+                    Service.getInstance().sendThongBao(player,
+                            "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH_NRSD
+                                    - player.inventory.gold) + " vàng");
                     return;
                 }
             } else {
@@ -284,8 +289,9 @@ public class PlayerService {
                     player.inventory.gold -= COST_GOLD_HOI_SINH;
                     canHs = true;
                 } else {
-                    Service.getInstance().sendThongBao(player, "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH
-                            - player.inventory.gold) + " vàng");
+                    Service.getInstance().sendThongBao(player,
+                            "Không đủ vàng để thực hiện, còn thiếu " + Util.numberToMoney(COST_GOLD_HOI_SINH
+                                    - player.inventory.gold) + " vàng");
                     return;
                 }
             }
