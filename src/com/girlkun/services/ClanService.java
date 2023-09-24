@@ -23,31 +23,30 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-
 public class ClanService {
 
-    //get clan
+    // get clan
     private static final byte REQUEST_FLAGS_CHOOSE_CREATE_CLAN = 1;
     private static final byte ACCEPT_CREATE_CLAN = 2;
     private static final byte REQUEST_FLAGS_CHOOSE_CHANGE_CLAN = 3;
     private static final byte ACCEPT_CHANGE_INFO_CLAN = 4;
 
-    //clan message
+    // clan message
     private static final byte CHAT = 0;
     private static final byte ASK_FOR_PEA = 1;
     private static final byte ASK_FOR_JOIN_CLAN = 2;
 
-    //join clan
+    // join clan
     private static final byte ACCEPT_ASK_JOIN_CLAN = 0;
     private static final byte CANCEL_ASK_JOIN_CLAN = 1;
 
-    //clan remote
+    // clan remote
     private static final byte KICK_OUT = -1;
     private static final byte CAT_CHUC = 2;
     private static final byte PHONG_PHO = 1;
     private static final byte PHONG_PC = 0;
 
-    //clan invite
+    // clan invite
     private static final byte SEND_INVITE_CLAN = 0;
     private static final byte ACCEPT_JOIN_CLAN = 1;
 
@@ -148,7 +147,7 @@ public class ClanService {
                     chat(player, msg.reader().readUTF());
                     break;
                 case ASK_FOR_PEA:
-//                    askForPea(player);
+                    // askForPea(player);
                     break;
                 case ASK_FOR_JOIN_CLAN:
                     askForJoinClan(player, msg.reader().readInt());
@@ -159,7 +158,7 @@ public class ClanService {
 
     }
 
-    //cho đậu
+    // cho đậu
     public void clanDonate(Player plGive, Message msg) {
         Clan clan = plGive.clan;
         if (clan != null) {
@@ -182,7 +181,8 @@ public class ClanService {
                                 peaCopy.itemOptions = pea.itemOptions;
                                 InventoryServiceNew.gI().addItemBag(plReceive, peaCopy);
                                 InventoryServiceNew.gI().sendItemBags(plReceive);
-                                Service.gI().sendThongBao(plReceive, plGive.name + " đã cho bạn " + peaCopy.template.name);
+                                Service.gI().sendThongBao(plReceive,
+                                        plGive.name + " đã cho bạn " + peaCopy.template.name);
                                 cmg.receiveDonate++;
                                 clan.sendMessageClan(cmg);
                             } else {
@@ -255,7 +255,7 @@ public class ClanService {
 
     }
 
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     /**
      * Mời vào bang
      */
@@ -267,7 +267,7 @@ public class ClanService {
                 msg = new Message(-57);
                 msg.writer().writeUTF(player.name + " mời bạn vào bang " + player.clan.name);
                 msg.writer().writeInt(player.clan.id);
-                msg.writer().writeInt(758435); //code
+                msg.writer().writeInt(758435); // code
                 pl.sendMessage(msg);
                 msg.cleanup();
             } catch (Exception e) {
@@ -285,6 +285,7 @@ public class ClanService {
                 if (clan != null && clan.getCurrMembers() < clan.maxMember) {
                     clan.addClanMember(player, Clan.MEMBER);
                     clan.addMemberOnline(player);
+                    clan.update();
                     player.clan = clan;
 
                     clan.sendMyClanForAllMember();
@@ -331,6 +332,7 @@ public class ClanService {
                         if (clan.getCurrMembers() < clan.maxMember) {
                             clan.addClanMember(pl, Clan.MEMBER);
                             clan.addMemberOnline(pl);
+                            clan.update();
                             pl.clan = player.clan;
 
                             cmg.text = "Chấp nhận " + pl.name + " vào bang.";
@@ -514,7 +516,7 @@ public class ClanService {
         }
     }
 
-    //danh sách clan
+    // danh sách clan
     public void sendListClan(Player player, String name) {
         Message msg;
         try {
@@ -664,7 +666,8 @@ public class ClanService {
             ClanMember cm = player.clan.getClanMember(playerId);
             if (cm != null) {
                 NpcService.gI().createMenuConMeo(player, ConstNpc.CONFIRM_NHUONG_PC, -1,
-                        "Bạn có đồng ý nhường chức bang chủ cho " + cm.name + "?", new String[]{"Đồng ý", "Từ chối"}, playerId);
+                        "Bạn có đồng ý nhường chức bang chủ cho " + cm.name + "?", new String[] { "Đồng ý", "Từ chối" },
+                        playerId);
             }
         }
     }
@@ -676,7 +679,8 @@ public class ClanService {
         Clan clan = player.clan;
         if (clan != null && clan.isLeader(player)) {
             clan.slogan = slogan;
-//            ClanDAO.saveClan(clan);
+            clan.update();
+            // ClanDAO.saveClan(clan);
             clan.sendMyClanForAllMember();
         }
     }
@@ -684,7 +688,7 @@ public class ClanService {
     public void changeFlag(Player player, int imgId) {
         Clan clan = player.clan;
         if (clan != null && clan.isLeader(player) && imgId != clan.imgId) {
-            //sub money
+            // sub money
             FlagBag flagBag = FlagBagService.gI().getFlagBag(imgId);
 
             if (flagBag != null) {
@@ -708,14 +712,15 @@ public class ClanService {
                 }
                 PlayerService.gI().sendInfoHpMpMoney(player);
                 player.clan.imgId = imgId;
-//                ClanDAO.saveClan(player.clan);
+                clan.update();
+                // ClanDAO.saveClan(player.clan);
                 clan.sendFlagBagForAllMember();
 
             }
         }
     }
 
-    //Rời khỏi bang
+    // Rời khỏi bang
     public void leaveClan(Player player) {
         Clan clan = player.clan;
         if (clan != null) {
@@ -736,6 +741,7 @@ public class ClanService {
 
                 clan.removeClanMember(cm);
                 clan.removeMemberOnline(cm, player);
+                clan.update();
                 cm.clan = null;
                 cm = null;
                 player.clan = null;
@@ -754,7 +760,7 @@ public class ClanService {
         }
     }
 
-    //Cắt chức
+    // Cắt chức
     public void catChuc(Player player, int memberId) {
         Clan clan = player.clan;
         if (clan != null) {
@@ -771,7 +777,8 @@ public class ClanService {
                     cmg.color = ClanMessage.RED;
 
                     cm.role = MEMBER;
-//                    ClanDAO.updateClanMember(cm);
+                    clan.update();
+                    // ClanDAO.updateClanMember(cm);
                     clan.sendMyClanForAllMember();
 
                     clan.addClanMessage(cmg);
@@ -781,7 +788,7 @@ public class ClanService {
         }
     }
 
-    //Đuổi khỏi bang
+    // Đuổi khỏi bang
     public void kickOut(Player player, int memberId) {
         Clan clan = player.clan;
         ClanMember cm = clan.getClanMember(memberId);
@@ -799,6 +806,7 @@ public class ClanService {
 
             clan.removeClanMember(cm);
             clan.removeMemberOnline(cm, plKicked);
+            clan.update();
             cm.clan = null;
             cm = null;
             if (plKicked != null) {
@@ -837,7 +845,7 @@ public class ClanService {
         }
     }
 
-    //Phong phó bang
+    // Phong phó bang
     public void phongPho(Player player, int memberId) {
         Clan clan = player.clan;
         if (clan != null && (clan.isLeader(player) || clan.isDeputy(player))) {
@@ -853,6 +861,7 @@ public class ClanService {
                 cmg.color = ClanMessage.RED;
 
                 cm1.role = DEPUTY;
+                clan.update();
                 clan.sendMyClanForAllMember();
 
                 clan.addClanMessage(cmg);
@@ -864,7 +873,7 @@ public class ClanService {
         }
     }
 
-    //Phong chủ bang
+    // Phong chủ bang
     public void phongPc(Player player, int memberId) {
         Clan clan = player.clan;
         if (clan != null && clan.isLeader(player)) {
@@ -881,8 +890,9 @@ public class ClanService {
 
                 leader.role = MEMBER;
                 cm.role = LEADER;
-//                ClanDAO.updateClanMember(leader);
-//                ClanDAO.updateClanMember(cm);
+                clan.update();
+                // ClanDAO.updateClanMember(leader);
+                // ClanDAO.updateClanMember(cm);
                 clan.sendMyClanForAllMember();
 
                 clan.addClanMessage(cmg);

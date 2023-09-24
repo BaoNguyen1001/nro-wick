@@ -377,7 +377,7 @@ public class NpcFactory {
                                         .replaceAll("%1", player.gender == ConstPlayer.TRAI_DAT ? "Quy lão Kamê"
                                                 : player.gender == ConstPlayer.NAMEC ? "Trưởng lão Guru"
                                                         : "Vua Vegeta"),
-                                "Đổi mật khẩu", "Nhận 200k ngọc xanh", "GiftCode", "Nhan de tu");
+                                "Đổi mật khẩu", "Nhận 200k ngọc xanh", "Nhận 2 tỉ vàng", "GiftCode", "Nhan de tu");
                     }
                 }
             }
@@ -400,15 +400,16 @@ public class NpcFactory {
                                 Service.getInstance().sendMoney(player);
                                 Service.getInstance().sendThongBao(player, "Bạn vừa nhận được 200K ngọc xanh");
                                 break;
-                            // case 2:
-                            // if (player.pet == null) {
-                            // PetService.gI().createMabuPet(player);
-                            // Service.getInstance().sendThongBao(player, "Bạn vừa nhận được đệ tử");
-                            // } else {
-                            // this.npcChat(player, "Bú ít thôi con");
-                            // }
-                            // break;
                             case 2:
+                                if (player.inventory.gold != 2000000000) {
+                                    player.inventory.gold = Inventory.LIMIT_GOLD;
+                                    Service.getInstance().sendMoney(player);
+                                    Service.getInstance().sendThongBao(player, "Bạn vừa nhận được 2 tỉ vàng");
+                                } else {
+                                    this.npcChat("Bú ít thôi con");
+                                }
+                                break;
+                            case 3:
                                 if (player.nPoint.power < 8) {
                                     Service.gI().sendThongBao(player, "Phải đủ 0 tỉ sức mạnh trở lên !");
                                     return;
@@ -416,7 +417,7 @@ public class NpcFactory {
                                     Input.gI().createFormGiftCode(player);
                                 }
                                 break;
-                            case 3:
+                            case 4:
                                 if (player.pet == null) {
                                     PetService.gI().createNormalPet(player);
                                     Service.getInstance().sendThongBao(player, "Bạn vừa nhận được đệ tử");

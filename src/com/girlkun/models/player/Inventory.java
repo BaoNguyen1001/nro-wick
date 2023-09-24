@@ -6,12 +6,11 @@ import com.girlkun.models.item.Item;
 import com.girlkun.models.item.Item.ItemOption;
 import com.girlkun.services.GiftService;
 
-
 public class Inventory {
-public static final int LIMIT_RUBY = 2000000000;
+    public static final int LIMIT_RUBY = 2000000000;
     public static final long LIMIT_GOLD = 10000000000L;
-    public static final int MAX_ITEMS_BAG = 50;
-    public static final int MAX_ITEMS_BOX = 60;
+    public static final int MAX_ITEMS_BAG = 100;
+    public static final int MAX_ITEMS_BOX = 100;
 
     public Item trainArmor;
     public List<String> giftCode;
@@ -40,20 +39,19 @@ public static final int LIMIT_RUBY = 2000000000;
     public int getGemAndRuby() {
         return this.gem + this.ruby;
     }
-    
-    
-    
-    public int getParam(Item it , int id){
-        for(ItemOption op : it.itemOptions){
-            if(op!=null&&op.optionTemplate.id ==id){
+
+    public int getParam(Item it, int id) {
+        for (ItemOption op : it.itemOptions) {
+            if (op != null && op.optionTemplate.id == id) {
                 return op.param;
             }
         }
         return 0;
     }
-    public boolean haveOption(List<Item> l , int index , int id){
+
+    public boolean haveOption(List<Item> l, int index, int id) {
         Item it = l.get(index);
-        if(it != null && it.isNotNullItem()){
+        if (it != null && it.isNotNullItem()) {
             return it.itemOptions.stream().anyMatch(op -> op != null && op.optionTemplate.id == id);
         }
         return false;
@@ -79,26 +77,26 @@ public static final int LIMIT_RUBY = 2000000000;
             this.trainArmor.dispose();
         }
         this.trainArmor = null;
-        if(this.itemsBody!= null){
-            for(Item it : this.itemsBody){
+        if (this.itemsBody != null) {
+            for (Item it : this.itemsBody) {
                 it.dispose();
             }
             this.itemsBody.clear();
         }
-        if(this.itemsBag!= null){
-            for(Item it : this.itemsBag){
+        if (this.itemsBag != null) {
+            for (Item it : this.itemsBag) {
                 it.dispose();
             }
             this.itemsBag.clear();
         }
-        if(this.itemsBox!= null){
-            for(Item it : this.itemsBox){
+        if (this.itemsBox != null) {
+            for (Item it : this.itemsBox) {
                 it.dispose();
             }
             this.itemsBox.clear();
         }
-        if(this.itemsBoxCrackBall!= null){
-            for(Item it : this.itemsBoxCrackBall){
+        if (this.itemsBoxCrackBall != null) {
+            for (Item it : this.itemsBoxCrackBall) {
                 it.dispose();
             }
             this.itemsBoxCrackBall.clear();
